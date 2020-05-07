@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import DogContainer from './DogContainer'
+import LoginRegisterForm from './LoginRegisterForm'
 
-function App() {
-  return (
-    <div className="App">
-      <h1>it's a doggy dog world out there</h1>
-        <DogContainer />
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      loggedInUserEmail: ''
+    }
+  }
+  render() {
+    return (
+      <div className="App">
+        {
+          this.state.loggedIn
+          ?
+          <DogContainer />
+          :
+          <LoginRegisterForm />
+        }
+      </div>
+    )
+  }
 }
-
-export default App;
