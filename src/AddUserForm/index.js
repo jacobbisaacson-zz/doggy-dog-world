@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Form, Button, Label, Segment } from 'semantic-ui-react'
 
-export default class AddDogForm extends Component {
+export default class AddUserForm extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       name: '',
-      breed: ''
+      email: ''
       // img:
     }
   }
@@ -20,10 +20,10 @@ export default class AddDogForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createDog(this.state)
+    this.props.createUser(this.state)
     this.setState({
       name: '',
-      breed: ''
+      email: ''
       // img:
     })
 
@@ -32,7 +32,7 @@ export default class AddDogForm extends Component {
   render() {
     return (
       <Segment>
-        <h4>Add your dog!</h4>
+        <h4>Create a Profile!</h4>
         <Form onSubmit={this.handleSubmit} >
           <Label>Name:</Label>
           <Form.Input 
@@ -42,15 +42,15 @@ export default class AddDogForm extends Component {
             placeholder="Enter a name"
             onChange={this.handleChange}  
           />
-          <Label>Breed:</Label>
+          <Label>Email:</Label>
           <Form.Input 
-            type="text"
-            name="breed"
-            value={this.state.breed}  
-            placeholder="Enter a breed"
+            type="email"
+            name="email"
+            value={this.state.email}  
+            placeholder="Enter a email"
             onChange={this.handleChange}
           />
-          <Button type="Submit">Add Dog</Button>
+          <Button type="Submit">Create Profile</Button>
         </Form>
       </Segment>
     )

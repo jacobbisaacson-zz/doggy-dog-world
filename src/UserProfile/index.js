@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import AddUserForm from '../AddUserForm'
 
 export default class UserProfile extends Component {
   constructor() {
@@ -10,8 +11,10 @@ export default class UserProfile extends Component {
   }
   render() {
     return(
-      <h3>User Profile</h3>
-      
+      <React.Fragment>
+        <h3>User Profile</h3>
+          <AddUserForm />
+      </React.Fragment>
     )
   }
 }

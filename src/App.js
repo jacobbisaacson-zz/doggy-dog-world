@@ -12,7 +12,6 @@ export default class App extends Component {
     }
   }
 
-
   register = async (registerInfo) => {
       console.log("register() in App.js called with the following info", registerInfo);    
       const url = process.env.REACT_APP_API_URL + "/api/v1/users/register"
