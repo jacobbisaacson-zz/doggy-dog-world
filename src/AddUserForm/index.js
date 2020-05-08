@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import { Form, Button, Label, Segment } from 'semantic-ui-react'
+import { Form, Button, Input, Select, TextArea, } from 'semantic-ui-react'
+
+const options = [
+    { key: 'v', text: 'Very', value: 'very' },
+    { key: 'k', text: 'Kinda', value: 'kinda' },
+    { key: 'm', text: 'Meh...', value: 'meh' },
+]
 
 export default class AddUserForm extends Component {
   constructor(props) {
@@ -7,52 +13,85 @@ export default class AddUserForm extends Component {
 
     this.state = {
       name: '',
-      email: ''
+      clean: '',
+      fenced: '',
+      busy: '',
+      big: ''
       // img:
     }
   }
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
+  handleChange = (event, { value }) => this.setState({ value })
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createUser(this.state)
+    this.props.createUserProfile(this.state)
     this.setState({
       name: '',
-      email: ''
       // img:
+      clean: '',
+      fenced: '',
+      busy: '',
+      big: ''
     })
-
   }
 
+
+
   render() {
+    // const { value } = this.state
     return (
-      <Segment>
-        <h4>Create a Profile!</h4>
-        <Form onSubmit={this.handleSubmit} >
-          <Label>Name:</Label>
-          <Form.Input 
-            type="text"
-            name="name"
-            value={this.state.name}
-            placeholder="Enter a name"
-            onChange={this.handleChange}  
-          />
-          <Label>Email:</Label>
-          <Form.Input 
-            type="email"
-            name="email"
-            value={this.state.email}  
-            placeholder="Enter a email"
+      <Form onSubmit={this.handleSubmit} >
+        <Form.Group widths='equal'>
+          <Form.Field
+            control={Input}
+            label='Name'
+            // value={this.state.name}
+            placeholder="What's your name, human?: "
             onChange={this.handleChange}
           />
-          <Button type="Submit">Create Profile</Button>
-        </Form>
-      </Segment>
+          <Form.Field
+            control={Select}
+            label='Clean'
+            options={options}
+            placeholder='How important is a clean dog park to you?: '
+            onChange={this.handleChange}
+          />
+          <Form.Field
+            control={Select}
+            label='Fenced'
+            options={options}
+            placeholder='How important is a fenced-in dog park to you?: '
+            onChange={this.handleChange}
+          />
+          <Form.Field
+            control={Select}
+            label='Busy'
+            options={options}
+            placeholder='How important is a busy dog park to you?: '
+            onChange={this.handleChange}
+          />
+          <Form.Field
+            control={Select}
+            label='Big'
+            options={options}
+            placeholder='How important is a big dog park to you?: '
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+        <Form.Group inline>
+          <Form.Field
+            control={TextArea}
+            label='Notes'
+            placeholder="Anything else you'd like to let us know?: "
+          />
+        </Form.Group>
+          <Form.Field control={Button}>Submit</Form.Field>
+      </Form>
     )
   }
 }
+
+
+
+

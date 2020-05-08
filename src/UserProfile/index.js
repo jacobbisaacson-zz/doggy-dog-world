@@ -5,10 +5,32 @@ export default class UserProfile extends Component {
   constructor() {
     super()
     this.state = {
-      username: '',
-      email: ''
+      user: []
+      // idOfUser: -1
     }
   }
+
+  componentDidMount() {
+    this.getUser()
+  }
+
+  getUser = async() => {
+    try {
+      const url = process.env.REACT_APP_API_URL + "/api/v1/users/"
+      const userResponse = await fetch(url, {
+        credentials: 'include'
+      })
+      console.log("userResponse", userResponse);
+      const userJson = await userResponse.json()
+      console.log("userJson", userJson);
+      this.setState({
+        user: userJson.data
+      })
+    } catch(err) {
+      console.error("ERROR getting USER DATA", err)
+    }
+  }
+
   render() {
     return(
       <React.Fragment>

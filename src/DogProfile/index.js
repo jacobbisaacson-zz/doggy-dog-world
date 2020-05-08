@@ -31,8 +31,8 @@ export default class DogProfile extends Component {
   }
 
   render() {
-    console.log("here is this.state in render() in DogProfile");
-    console.log(this.state);
+    // console.log("here is this.state in render() in DogProfile");
+    // console.log(this.state);
     return(
       <React.Fragment>
         <h3>Dog Profile</h3>

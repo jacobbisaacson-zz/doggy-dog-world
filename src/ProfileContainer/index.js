@@ -11,8 +11,8 @@ export default class ProfileContainer extends Component {
   }
 
 	render() {
-    console.log("here is this.state in render() in ProfileContainer");
-    console.log(this.state);
+    // console.log("here is this.state in render() in ProfileContainer");
+    // console.log(this.state);
 		return(
       <React.Fragment>
 			<h2> Profile Container </h2>
