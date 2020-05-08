@@ -17,7 +17,6 @@ export default function AddUserForm(props) {
     big: ''
   })
 
-
   const handleChange = (event) => {
     setUserProfileInfo({
       ...userProfileInfo,

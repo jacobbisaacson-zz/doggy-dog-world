@@ -21,13 +21,6 @@ export default function AddDogForm(props) {
   }
     // setAddDogInfo({
 
-    // })
-
-
-
-// }
-
-
 
 //   handleSubmit = (event) => {
 //     event.preventDefault()
@@ -37,9 +30,6 @@ export default function AddDogForm(props) {
 //       breed: ''
 //       // img:
 //     })
-
-//   }
-
 
   return (
     <Segment>
