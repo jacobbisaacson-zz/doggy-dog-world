@@ -24,15 +24,19 @@ export default function AddUserForm(props) {
     })
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    props.createUserProfile(userProfileInfo)
-  }
+  // const handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   const [createdUserProfile, setCreatedUserProfile] = useState({
+  //     ...userProfileInfo,
+  //     [event.target.name]: event.target.value
+  //   })
+  // }
 
   // const { value } = this.state
+  console.log(props);
   return (
     <Form 
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       className='add-user-form'
     >
       <Form.Group 

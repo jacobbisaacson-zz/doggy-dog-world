@@ -4,7 +4,7 @@ import AddDogForm from '../AddDogForm'
 import DogList from '../DogList'
 
 export default function DogProfile() {
-  const [dogProfileInfo, setDogProfileInfo] = userState({
+  const [dogProfileInfo, setDogProfileInfo] = useState({
     dogs: []
   })
 
@@ -20,17 +20,26 @@ export default function DogProfile() {
     }
   }
 
-  const getDogs
+  // const getDogs
 
-
-
-
-
+  return(
+    <React.Fragment>
+      <h3>Dog Profile</h3>
+        <DogList />
+        <AddDogForm />
+    </React.Fragment>
+  )
 }
 
-  componentDidMount() {
-    this.getDogs()
-  }
+// in here conditinal logic for displaying either the add Dog form or the edit dog modal
+
+
+
+// }
+
+//   componentDidMount() {
+//     this.getDogs()
+//   }
 
   // getDogs = async () => {
   //   try {
@@ -47,17 +56,5 @@ export default function DogProfile() {
   //   }
   // }
 
-  render() {
     // console.log("here is this.state in render() in DogProfile");
     // console.log(this.state);
-    return(
-      <React.Fragment>
-        <h3>Dog Profile</h3>
-          <DogList />
-          <AddDogForm />
-      </React.Fragment>
-    )
-  }
-}
-
-// in here conditinal logic for displaying either the add Dog form or the edit dog modal

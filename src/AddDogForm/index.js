@@ -16,9 +16,11 @@ export default function AddDogForm(props) {
     })
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-  }
+  // const handleSubmit = (event) => {
+  //   event.preventDefault()
+  // }
+
+  
     // setAddDogInfo({
 
 
