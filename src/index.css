@@ -7,3 +7,14 @@ body {
 	color: blue;
 	text-decoration: underline;
 }
+
+.add-user-form {
+  margin: 0 auto;
+  width: 95%;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.notes-text-box {
+  display: flex;
+}

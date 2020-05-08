@@ -1,100 +1,84 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Label } from 'semantic-ui-react'
 import '../index.css'
 
-export default class LoginRegisterForm extends Component {
 
-  constructor() {
-    super()
+export default function LoginRegisterForm(props) {
+  const [userInfo, setUserInfo] = useState({
+    password: '',
+    username: ''  
+  })
+  const [action, setAction] = useState('Login')
 
-    this.state = {
-      email: '',
-      password: '',
-      username: '',
-      action: 'Login'
-    }
-  }
-
-  switchForm = () => {
-    if(this.state.action === "Login") {
-      this.setState({ action: "Register" })
+  const switchForm = () => {
+    if(action === "Login") {
+      setAction('Register')
     } else {
-      this.setState({ action: "Login" })
+      setAction('Login')
     }
   }
 
-  handleChange = (event) => {
-    this.setState({
+  const handleChange = (event) => {
+    setUserInfo({
+      // BELOW IS SPREAD OPERATOR (takes the old info)
+      ...userInfo,
       [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(`You are trying to ${this.state.action.toLowerCase()} with the following credentials`)
-    console.log(this.state)
 
-    if(this.state.action === "Register") {
-      this.props.register(this.state)
+    // LOOK AT VALIDATING THIS FORM
+
+    if(action === "Register") {
+      props.register(userInfo)
     } else {
-      this.props.login(this.state)
+      props.login(userInfo)
     }
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <h2>{this.state.action}</h2>
-        <Form onSubmit={this.handleSubmit}>
-          {
-            this.state.action === "Register"
-            &&
-            <React.Fragment>
-              <Label>Username:</Label>
-              <Form.Input 
-                type="text"
-                name="username"
-                placeholder="Enter a username"
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
-            </React.Fragment>
-          }
-          <Label>Email:</Label>
-          <Form.Input 
-            type="email"
-            name="email"
-            placeholder="Enter a email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <Label>Password:</Label>
-          <Form.Input 
-            type="password"
-            name="password"
-            placeholder="Enter a password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <Button type="Submit">
-            {this.state.action === "Login" ? "Log In" : "Sign Up"}
-          </Button>
-        </Form>
-        {
-          this.state.action === "Login"
-          ?
-          <p>
-            Want to Join? Sign up <span className="fake-link" onClick={this.switchForm}>here</span>
-          </p>
-          :
-          <p>
-            Already joined? Log in <span className="fake-link" onClick={this.switchForm}>here</span>
-          </p>
-        }
+  return (
+    <React.Fragment>
+      <h2>{action} here</h2>
+      <Form onSubmit={handleSubmit}>
+        { action === "Register" }
+        <Label>Username:</Label>
+        <Form.Input 
+          type="text"
+          name="username"
+          placeholder="Enter a username"
+          value={userInfo.username}
+          onChange={handleChange}
+        />
+        <Label>Password:</Label>
+        <Form.Input 
+          type="password"
+          name="password"
+          placeholder="Enter a password"
+          value={userInfo.password}
+          onChange={handleChange}
+        />
+        <Button type="Submit">
+          { action === "Login" ? "Log in" : "Sign up"}
+        </Button>
+      </Form>
+      {
+        action === "Login"
+        ?
+        <p>
+          Need an account? Sign up <span className="fake-link" onClick={switchForm}>here</span>.
+        </p>
+        :
+        <p>
+          Already have an account? Log in <span className="fake-link" onClick={switchForm}>here</span>.
+        </p>
 
-      </React.Fragment>      
-    )
-  }
-} 
+      }
+
+    </React.Fragment>      
+  )
+
+}
 
 

@@ -1,58 +1,68 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Label, Segment } from 'semantic-ui-react'
+import '../index.css'
 
-export default class AddDogForm extends Component {
-  constructor(props) {
-    super(props)
+export default function AddDogForm(props) {
+  const [addDogInfo, setAddDogInfo] = useState({
+    name: '',
+    breed: ''
+    // img:
+  })
 
-    this.state = {
-      name: '',
-      breed: ''
-      // img:
-    }
-  }
-
-  handleChange = (event) => {
-    this.setState({
+  const handleChange = (event) => {
+    setAddDogInfo({
+      ...addDogInfo,
       [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createDog(this.state)
-    this.setState({
-      name: '',
-      breed: ''
-      // img:
-    })
-
   }
+    // setAddDogInfo({
 
-  render() {
-    return (
-      <Segment>
-        <h4>Add your dog!</h4>
-        <Form onSubmit={this.handleSubmit} >
-          <Label>Name:</Label>
-          <Form.Input 
-            type="text"
-            name="name"
-            value={this.state.name}
-            placeholder="Enter a name"
-            onChange={this.handleChange}  
-          />
-          <Label>Breed:</Label>
-          <Form.Input 
-            type="text"
-            name="breed"
-            value={this.state.breed}  
-            placeholder="Enter a breed"
-            onChange={this.handleChange}
-          />
-          <Button type="Submit">Add Dog</Button>
-        </Form>
-      </Segment>
-    )
-  }
+    // })
+
+
+
+// }
+
+
+
+//   handleSubmit = (event) => {
+//     event.preventDefault()
+//     this.props.createDog(this.state)
+//     this.setState({
+//       name: '',
+//       breed: ''
+//       // img:
+//     })
+
+//   }
+
+
+  return (
+    <Segment>
+      <h4>Add your dog!</h4>
+      <Form>
+        <Label>Name:</Label>
+        <Form.Input 
+          type="text"
+          name="name"
+          value={setAddDogInfo.name}
+          placeholder="Enter a name"
+          onChange={handleChange}  
+        />
+        <Label>Breed:</Label>
+        <Form.Input 
+          type="text"
+          name="breed"
+          value={setAddDogInfo.breed}  
+          placeholder="Enter a breed"
+          onChange={handleChange}
+        />
+        <Button type="Submit">Add Dog</Button>
+      </Form>
+    </Segment>
+  )
 }
