@@ -23,11 +23,29 @@ export default class LoginRegisterForm extends Component {
     }
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(`You are trying to ${this.state.action.toLowerCase()} with the following credentials`)
+    console.log(this.state)
+
+    if(this.state.action === "Register") {
+      this.props.register(this.state)
+    } else {
+      this.props.login(this.state)
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
-        <h2>{this.state.action} here</h2>
-        <Form>
+        <h2>{this.state.action}</h2>
+        <Form onSubmit={this.handleSubmit}>
           {
             this.state.action === "Register"
             &&
@@ -38,15 +56,17 @@ export default class LoginRegisterForm extends Component {
                 name="username"
                 placeholder="Enter a username"
                 value={this.state.username}
+                onChange={this.handleChange}
               />
             </React.Fragment>
           }
           <Label>Email:</Label>
           <Form.Input 
-            type="text"
+            type="email"
             name="email"
             placeholder="Enter a email"
             value={this.state.email}
+            onChange={this.handleChange}
           />
           <Label>Password:</Label>
           <Form.Input 
@@ -54,6 +74,7 @@ export default class LoginRegisterForm extends Component {
             name="password"
             placeholder="Enter a password"
             value={this.state.password}
+            onChange={this.handleChange}
           />
           <Button type="Submit">
             {this.state.action === "Login" ? "Log In" : "Sign Up"}
@@ -70,7 +91,7 @@ export default class LoginRegisterForm extends Component {
             Already joined? Log in <span className="fake-link" onClick={this.switchForm}>here</span>
           </p>
         }
-        
+
       </React.Fragment>      
     )
   }
