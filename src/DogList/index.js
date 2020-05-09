@@ -1,11 +1,80 @@
 import React from 'react'
-// import { Card, Button } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 
 export default function DogList(props) {
-  // console.log("props in DogList");
-  // console.log(props);
+  console.log("THIS IS THE USER'S DOG LIST (props in DogList)", props);
+  const dogs = props.dogs.map(dog => {
+    return(
+      <Card key={dog.id} color={"red"}>
+        <Card.Content textAlign={"center"}>        
+          <Card.Header>
+            {dog.name}
+          </Card.Header>
+          <Card.Meta>
+            {dog.breed}
+          </Card.Meta>
+          <Card.Description>
+            {dog.name} is a {dog.breed} that belongs to {dog.owner.username}
+          </Card.Description>
+        </Card.Content>
+        <Card.Content textAlign={"center"}> 
+          <Button 
+            basic 
+            color='red'
+            onClick={ () => props.deleteDog(dog.id) }
+          >
+            Delete {dog.name}
+          </Button>
+          <Button 
+            basic 
+            color='green'
+            onClick={ () => props.editDog(dog.id) }
+          >
+            Edit {dog.name}
+          </Button>
+        </Card.Content>
+      </Card>
+    )
+  })
 
-  return(
-    <h4>Dog List (user's)</h4>
+  return (
+    <Card.Group centered={true}>
+      {dogs}
+    </Card.Group>
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////HERE!!!!!!!!!!!!!
+
+// import React from 'react'
+// // import { Card, Button } from 'semantic-ui-react'
+
+// export default function DogList(props) {
+//   console.log("THIS IS THE USER'S DOG LIST (props in DogList)", props);
+
+//   return(
+//     <h4>Dog List (user's)</h4>
+//   )
+// }
+
+
+/////EDN HERE!!!!!!!
+

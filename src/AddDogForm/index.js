@@ -1,60 +1,131 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import { Form, Button, Label, Segment } from 'semantic-ui-react'
-import '../index.css'
 
-export default function AddDogForm(props) {
-  const [addDogInfo, setAddDogInfo] = useState({
-    name: '',
-    breed: ''
-    // img:
-  })
+export default class NewDogForm extends Component {
+  constructor(props) {
+    super(props)
 
-  const handleChange = (event) => {
-    setAddDogInfo({
-      ...addDogInfo,
+    this.state = {
+      name: '',
+      breed: ''
+    }
+  }
+
+  handleChange = (event) => {
+    this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-  // }
+  handleSubmit = (event) => {
+    event.preventDefault() 
+    this.props.createDog(this.state)
+    this.setState({
+      name: '',
+      breed: '',
+      owner: ''
+    })
+  }
 
-  
-    // setAddDogInfo({
-
-
-//   handleSubmit = (event) => {
-//     event.preventDefault()
-//     this.props.createDog(this.state)
-//     this.setState({
-//       name: '',
-//       breed: ''
-//       // img:
-//     })
-
-  return (
-    <Segment>
-      <h4>Add your dog!</h4>
-      <Form>
-        <Label>Name:</Label>
-        <Form.Input 
-          type="text"
-          name="name"
-          value={setAddDogInfo.name}
-          placeholder="Enter a name"
-          onChange={handleChange}  
-        />
-        <Label>Breed:</Label>
-        <Form.Input 
-          type="text"
-          name="breed"
-          value={setAddDogInfo.breed}  
-          placeholder="Enter a breed"
-          onChange={handleChange}
-        />
-        <Button type="Submit">Add Dog</Button>
-      </Form>
-    </Segment>
-  )
+  render() {
+    return (
+      <Segment>
+        <h4>Add new dog:</h4>
+        <Form onSubmit={this.handleSubmit} >
+          <Label>Name:</Label>
+          <Form.Input 
+            type="text"
+            name="name"
+            value={this.state.name}
+            placeholder="Enter a name"
+            onChange={this.handleChange}  
+          />
+          <Label>Breed:</Label>
+          <Form.Input 
+            type="text"
+            name="breed"
+            value={this.state.breed}  
+            placeholder="Enter a breed"
+            onChange={this.handleChange}
+          />
+          <Button type="Submit">Create Dog</Button>
+        </Form>
+      </Segment>
+    )
+  }
 }
+
+
+
+
+
+////////here!!!!!!!!!!!
+
+
+
+
+
+
+// import React, { useState } from 'react'
+// import { Form, Button, Label, Segment } from 'semantic-ui-react'
+// import '../index.css'
+
+// export default function AddDogForm(props) {
+//   const [addDogInfo, setAddDogInfo] = useState({
+//     name: '',
+//     breed: ''
+//     // img:
+//   })
+
+//   // const handleChange = (event) => {
+//   //   setAddDogInfo({
+//   //     ...addDogInfo,
+//   //     [event.target.name]: event.target.value
+//   //   })
+//   // }
+
+//   // const handleSubmit = (event) => {
+//   //   event.preventDefault()
+//   // }
+
+
+//     // setAddDogInfo({
+
+
+// //   handleSubmit = (event) => {
+// //     event.preventDefault()
+// //     this.props.createDog(this.state)
+// //     this.setState({
+// //       name: '',
+// //       breed: ''
+// //       // img:
+// //     })
+
+//   return (
+//     <Segment>
+//       <h4>Add your dog!</h4>
+//       <Form>
+//         <Label>Name:</Label>
+//         <Form.Input 
+//           type="text"
+//           name="name"
+//           value={setAddDogInfo.name}
+//           placeholder="Enter a name"
+//           onChange={handleChange}  
+//         />
+//         <Label>Breed:</Label>
+//         <Form.Input 
+//           type="text"
+//           name="breed"
+//           value={setAddDogInfo.breed}  
+//           placeholder="Enter a breed"
+//           onChange={handleChange}
+//         />
+//         <Button type="Submit">Add Dog</Button>
+//       </Form>
+//     </Segment>
+//   )
+// }
+
+
+/////edns here!!!!!!!!

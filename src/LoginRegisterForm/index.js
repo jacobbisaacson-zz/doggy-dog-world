@@ -3,11 +3,12 @@ import { Form, Button, Label } from 'semantic-ui-react'
 import '../index.css'
 
 
-export default function LoginRegisterForm(props) {
+export default function LoginRegisterForm({login, register}) {
   const [userInfo, setUserInfo] = useState({
     password: '',
     username: ''  
   })
+  
   const [action, setAction] = useState('Login')
 
   const switchForm = () => {
@@ -32,9 +33,9 @@ export default function LoginRegisterForm(props) {
     // LOOK AT VALIDATING THIS FORM
 
     if(action === "Register") {
-      props.register(userInfo)
+      register(userInfo)
     } else {
-      props.login(userInfo)
+      login(userInfo)
     }
   }
 

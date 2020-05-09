@@ -33,7 +33,7 @@ export default function AddUserForm(props) {
   // }
 
   // const { value } = this.state
-  console.log(props);
+  console.log("props in add user form", props);
   return (
     <Form 
       // onSubmit={handleSubmit}
