@@ -1,68 +1,57 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Label, Segment } from 'semantic-ui-react'
 
-export default class NewDogForm extends Component {
-  constructor(props) {
-    super(props)
+export default function NewDogForm({createDog}) {
+  const [dog, setDog] = useState({
+    name: '',
+    breed: '',
+    image: ''
+  })
 
-    this.state = {
-      name: '',
-      breed: '',
-      image: ''
-    }
-  }
-
-  handleChange = (event) => {
-    this.setState({
+  const handleChange = event => {
+    setDog({
+      ...dog,
       [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault() 
-    this.props.createDog(this.state)
-    this.setState({
-      name: '',
-      breed: '',
-      image: ''
-      // owner: ''
-    })
+  const handleSubmit = event => {
+    event.preventDefault()
+    createDog(dog)
   }
 
-  render() {
-    return (
-      <Segment>
-        <h4>Add new dog:</h4>
-        <Form onSubmit={this.handleSubmit} >
-          <Label>Name:</Label>
-          <Form.Input 
-            type="text"
-            name="name"
-            value={this.state.name}
-            placeholder="Enter a name"
-            onChange={this.handleChange}  
-          />
-          <Label>Breed:</Label>
-          <Form.Input 
-            type="text"
-            name="breed"
-            value={this.state.breed}  
-            placeholder="Enter a breed"
-            onChange={this.handleChange}
-          />
-          <Label>Picture:</Label>
-          <Form.Input 
-            type="text"
-            name="image"
-            value={this.state.image}  
-            placeholder="Paste image URL here: "
-            onChange={this.handleChange}
-          />
-          <Button type="Submit">Create Dog</Button>
-        </Form>
-      </Segment>
-    )
-  }
+  return (
+    <Segment>
+      <h4>Add new dog:</h4>
+      <Form onSubmit={handleSubmit}>
+        <Label>Name:</Label>
+        <Form.Input 
+          type="text"
+          name="name"
+          value={dog.name}
+          placeholder="Enter a name"
+          onChange={handleChange}  
+        />
+        <Label>Breed:</Label>
+        <Form.Input 
+          type="text"
+          name="breed"
+          value={dog.breed}  
+          placeholder="Enter a breed"
+          onChange={handleChange}
+        />
+        <Label>Picture:</Label>
+        <Form.Input 
+          type="text"
+          name="image"
+          value={dog.image}  
+          placeholder="Paste image URL here: "
+          onChange={handleChange}
+        />
+        <Button type="Submit">Create Dog</Button>
+      </Form>
+    </Segment>
+  )
 }
 
 

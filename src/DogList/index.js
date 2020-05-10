@@ -13,7 +13,7 @@ export default function DogList(props) {
           <Image 
             src={dog.image}
             size='medium'
-            floated='center'
+            floated='left'
           />
             <Card.Header>
               {dog.name}
