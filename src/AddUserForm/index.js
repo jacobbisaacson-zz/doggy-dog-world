@@ -8,8 +8,8 @@ const options = [
     { key: 'm', text: 'Meh...', value: 'meh' },
 ]
 
-export default function AddUserForm(props) {
-  const [userProfileInfo, setUserProfileInfo] = useState({
+export default function AddUserForm({createUser}) {
+  const [userProfile, setUserProfile] = useState({
     name: '',
     clean: '',
     fenced: '',
@@ -17,26 +17,21 @@ export default function AddUserForm(props) {
     big: ''
   })
 
-  const handleChange = (event) => {
-    setUserProfileInfo({
-      ...userProfileInfo,
+  const handleChange = event => {
+    setUserProfile({
+      ...userProfile,
       [event.target.name]: event.target.value
     })
   }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   const [createdUserProfile, setCreatedUserProfile] = useState({
-  //     ...userProfileInfo,
-  //     [event.target.name]: event.target.value
-  //   })
-  // }
+  const handleSubmit = event => {
+    event.preventDefault()
+    createUser(userProfile)
+  }
 
-  // const { value } = this.state
-  console.log("props in add user form", props);
   return (
     <Form 
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       className='add-user-form'
     >
       <Form.Group 

@@ -32,7 +32,7 @@ export default function EditDogModal({dogToEdit, updateDog, closeModal}) {
             placeholder="Enter a breed"
             onChange={handleChange}
           />
-          <Label>Picture:</Label>
+          <Label>Cute Picture:</Label>
           <Form.Input 
             type="text"
             name="image"

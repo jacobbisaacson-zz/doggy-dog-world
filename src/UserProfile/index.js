@@ -1,44 +1,63 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import AddUserForm from '../AddUserForm'
+// import UserList from '../UserList'
+// import edit user modal
 
-export default class UserProfile extends Component {
-  constructor() {
-    super()
-    this.state = {
-      user: []
-      // idOfUser: -1
-    }
-  }
+export default function UserProfile() {
+  const [users, setUsers] = useState([])
+  // const [idOfUserToEdit, setIdOfUserToEdit] = useState(-1)
 
-  componentDidMount() {
-    this.getUser()
-  }
+  useEffect(() => {
+    getUsers()
+  }, [])
 
-  getUser = async() => {
+  const getUsers = async () => {
     try {
       const url = process.env.REACT_APP_API_URL + "/api/v1/users/"
-      const userResponse = await fetch(url, {
+      const usersResponse = await fetch(url, {
         credentials: 'include'
       })
-      console.log("userResponse", userResponse);
-      const userJson = await userResponse.json()
-      console.log("userJson", userJson);
-      this.setState({
-        user: userJson.data
-      })
+      const usersJson = await usersResponse.json()
+      setUsers(usersJson.data)
     } catch(err) {
-      console.error("ERROR getting USER DATA", err)
+      console.error("ERROR getting USERs DATA", err)
     }
   }
 
-  render() {
-    return(
-      <React.Fragment>
-        <h3>User Profile</h3>
-          <AddUserForm />
-      </React.Fragment>
-    )
+  const createUser = async (userToAdd) => {
+    try {
+      const url = process.env.REACT_APP_API_URL + "/api/v1/users/"
+      const createUserResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userToAdd)
+      })
+      const createUserJson = await createUserResponse.json()
+      if(createUserResponse.status === 201) {
+        setUsers([ ...users, createUserJson.data ])
+      }
+    } catch(err) {
+      console.error("error adding user", err)
+    }
   }
+
+  return(
+    <React.Fragment>
+      <h3>User Profile</h3>
+
+        <AddUserForm
+          createUser={createUser}
+        />
+    </React.Fragment>
+  )
 }
+
+        // <UserList
+          // users={users}
+          
+        // />
 
 // in here conditinal logic for displaying either the new user form or the edit user modal

@@ -19,9 +19,7 @@ export default function DogProfile() {
         credentials: 'include'
       })
       const dogsJson = await dogsResponse.json()
-
       setDogs(dogsJson.data)
-
     } catch(err) {
       console.error("Error getting dog data.", err)
     }
@@ -34,11 +32,9 @@ export default function DogProfile() {
         credentials: 'include',
         method: 'DELETE'
       })
-
       if(deleteDogResponse.status === 200) {
         setDogs(dogs.filter(dog => dog.id !== idOfDogToDelete))
       }
-
     } catch(err) {
       console.error("Error deleting dog:");
       console.error(err);
@@ -47,7 +43,6 @@ export default function DogProfile() {
   }
 
   const createDog = async (dogToAdd) => {
-
     try {
       const url = process.env.REACT_APP_API_URL + "/api/v1/dogs/"
       const createDogResponse = await fetch(url, {
@@ -59,10 +54,8 @@ export default function DogProfile() {
         body: JSON.stringify(dogToAdd)
       })
       const createDogJson = await createDogResponse.json()
-
       if(createDogResponse.status === 201) {
         setDogs([...dogs, createDogJson.data])
-
       }
     } catch(err) {
       console.error("Error adding dog")
@@ -71,13 +64,9 @@ export default function DogProfile() {
 
   } //create Dog
 
-
   const editDog = (idOfDogToEdit) => setIdOfDogToEdit(idOfDogToEdit)
-
-
   const updateDog = async (updatedDogInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/dogs/" + idOfDogToEdit
-
     try {
       const updateDogResponse = await fetch(url, {
         credentials: 'include',
@@ -88,14 +77,12 @@ export default function DogProfile() {
         }
       })
       const updateDogJson = await updateDogResponse.json()
-
       if(updateDogResponse.status === 200) {
         const indexOfDogBeingUpdated = dogs.findIndex(dog => dog.id === idOfDogToEdit)
         dogs[indexOfDogBeingUpdated] = updateDogJson.data
         setDogs(dogs)
         setIdOfDogToEdit(-1)
       }
-
     } catch(err) {
       console.error("Error updating dog info")
       console.error(err)
@@ -105,7 +92,6 @@ export default function DogProfile() {
 
 
   const closeModal = () => setIdOfDogToEdit(-1)
-
   return(
     <React.Fragment>
       <h3>Dog Profile</h3>
