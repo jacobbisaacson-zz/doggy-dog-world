@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
-import { Form, Button, Label, Segment } from 'semantic-ui-react'
+import { Form, Button, Segment, Select, Input } from 'semantic-ui-react'
+
+const options = [
+    { key: 'v', text: 'Very', value: 'very' },
+    { key: 'k', text: 'Kinda', value: 'kinda' },
+    { key: 'm', text: 'Meh...', value: 'meh' },
+]
 
 export default function NewParkForm({ createPark }) {
   const [park, setPark] = useState({
     name: '',
-    breed: '',
-    image: ''
+    clean: '',
+    big: '',
+    fenced: '',
+    busy: '',
+    location: ''
   })
 
   const handleChange = event => {
@@ -23,48 +32,60 @@ export default function NewParkForm({ createPark }) {
   return (
     <Segment>
       <h4>Add New Park:</h4>
-      <Form onSubmit={handleSubmit}>
-        <Label>Name:</Label>
-        <Form.Input 
-          type="text"
-          name="name"
-          value={park.name}
-          placeholder="Enter a name"
-          onChange={handleChange}  
-        />
-        <Label>Is this park Clean?:</Label>
-        <Form.Input 
-          type="checkbox"
-          name="isClean"
-          value={park.isClean}  
-          // placeholder="Is this park CLEAN?"
-          onChange={handleChange}
-        />
-        <Label>Is this park Big?:</Label>
-        <Form.Input 
-          type="checkbox"
-          name="isBig"
-          value={park.isBig}  
-          // placeholder="Is this park BIG?"
-          onChange={handleChange}
-        />
-        <Label>Is this park Fenced?:</Label>
-        <Form.Input 
-          type="checkbox"
-          name="isFenced"
-          value={park.isFenced}  
-          // placeholder="Is this park FENCED?"
-          onChange={handleChange}
-        />
-        <Label>Is this park Busy?:</Label>
-        <Form.Input 
-          type="checkbox"
-          name="isBusy"
-          value={park.isBusy}  
-          // placeholder="Is this park BIG?"
-          onChange={handleChange}
-        />
-        <Button type="Submit">Create Park</Button>
+      <Form 
+        onSubmit={handleSubmit}
+        className='add-park-form'
+      >
+        <Form.Group
+          widths='equal'>
+          <Form.Field
+            onSubmit={handleSubmit}
+            control={Input}
+            label='Name'
+            placeholder="Enter Park Name: "
+            onChange={handleChange}
+          />
+          <Form.Field
+            onSubmit={handleSubmit}
+            control={Input}
+            label='Location'
+            placeholder="Enter Park Location: "
+            onChange={handleChange}
+          />
+          <Form.Field
+            onSubmit={handleSubmit}
+            control={Select}
+            label='Clean'
+            options={options}
+            placeholder="Is this park CLEAN?: "
+            onChange={handleChange}
+          />
+          <Form.Field
+            onSubmit={handleSubmit}
+            control={Select}
+            label='Big'
+            options={options}
+            placeholder="Is this park BIG?: "
+            onChange={handleChange}
+          />
+          <Form.Field
+            onSubmit={handleSubmit}
+            control={Select}
+            label='Fenced'
+            options={options}
+            placeholder="Is this park FENCED?: "
+            onChange={handleChange}
+          />
+          <Form.Field
+            onSubmit={handleSubmit}
+            control={Select}
+            label='Busy'
+            options={options}
+            placeholder="Is this park BUSY?: "
+            onChange={handleChange}
+          />
+        </Form.Group>
+          <Form.Field control={Button}>Submit</Form.Field>
       </Form>
     </Segment>
   )
