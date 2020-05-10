@@ -7,7 +7,8 @@ export default class NewDogForm extends Component {
 
     this.state = {
       name: '',
-      breed: ''
+      breed: '',
+      image: ''
     }
   }
 
@@ -23,7 +24,8 @@ export default class NewDogForm extends Component {
     this.setState({
       name: '',
       breed: '',
-      owner: ''
+      image: ''
+      // owner: ''
     })
   }
 
