@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import DogProfile from '../DogProfile'
 import UserProfile from '../UserProfile'
-
-// import ParksContainer from '../ParksContainer'
+import ParkContainer from '../ParkContainer'
 
 export default function ProfileContainer() {
 
@@ -11,6 +10,7 @@ export default function ProfileContainer() {
   	<h2> Profile Container </h2>
       <UserProfile />
       <DogProfile />
+      <ParkContainer />
 
     </React.Fragment>
   )
@@ -19,4 +19,6 @@ export default function ProfileContainer() {
 
 
 
-      // <ParksContainer /> // where do we want this on the profile page?
+
+
+

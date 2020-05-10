@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Label, Segment } from 'semantic-ui-react'
 
-export default function NewDogForm({createDog}) {
+export default function AddDogForm({createDog}) {
   const [dog, setDog] = useState({
     name: '',
     breed: '',
