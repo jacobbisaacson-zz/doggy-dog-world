@@ -1,70 +1,54 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Label, Modal, Header } from 'semantic-ui-react'
 import '../index.css'
 
-export default class EditDogModal extends Component {
-  constructor(props) {
-    super(props)
-
-    console.log("props in constructor in EditDogModal");
-    console.log(props);
-
-    this.state = {
-      name: props.dogToEdit.name,
-      breed: props.dogToEdit.breed,
-      image: props.dogToEdit.image
-    }
-  }  
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
-  handleSubmit = (event) => {
+export default function EditDogModal({dogToEdit, updateDog, closeModal}) {
+  const [dog, setDog] = useState(dogToEdit)
+  const handleChange = event => setDog({ ...dog, [event.target.name]: event.target.value })
+  const handleSubmit = (event) => {
     event.preventDefault()
-    this.props.updateDog(this.state)
+    updateDog(dog)
   }
 
-  render() {
-
-    return(
-      <Modal open={true} closeIcon={true} onClose={this.props.closeModal}> 
-        <Header>
-          <h3>Enter new info</h3>
-        </Header>
-        <Modal.Content>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Input 
-              type="text"
-              name="name"
-              value={this.state.name}
-              placeholder="Enter a name"
-              onChange={this.handleChange}
-            />
-            <Label>Breed:</Label>
-            <Form.Input 
-              type="text"
-              name="breed"
-              value={this.state.breed}  
-              placeholder="Enter a breed"
-              onChange={this.handleChange}
-            />
-            <Label>Picture:</Label>
-            <Form.Input 
-              type="text"
-              name="image"
-              value={this.state.image}  
-              placeholder="Paste image URL here: "
-              onChange={this.handleChange}
-            />
-            <Modal.Actions>
-              <Button type="Submit">Update Dog</Button>
-            </Modal.Actions>
-          </Form>
-        </Modal.Content>
-      </Modal>
-    )    
-  }
+  return(
+    <Modal open={true} closeIcon={true} onClose={closeModal}> 
+      <Header>
+        <h3>Enter new info</h3>
+      </Header>
+      <Modal.Content>
+        <Form onSubmit={handleSubmit}>
+          <Form.Input 
+            type="text"
+            name="name"
+            value={dog.name}
+            placeholder="Enter a name"
+            onChange={handleChange}
+          />
+          <Label>Breed:</Label>
+          <Form.Input 
+            type="text"
+            name="breed"
+            value={dog.breed}  
+            placeholder="Enter a breed"
+            onChange={handleChange}
+          />
+          <Label>Picture:</Label>
+          <Form.Input 
+            type="text"
+            name="image"
+            value={dog.image}  
+            placeholder="Paste image URL here: "
+            onChange={handleChange}
+          />
+          <Modal.Actions>
+            <Button type="Submit">Update Dog</Button>
+          </Modal.Actions>
+        </Form>
+      </Modal.Content>
+    </Modal>
+  )
 }
+
+
+
+
