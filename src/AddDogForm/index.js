@@ -50,6 +50,14 @@ export default class NewDogForm extends Component {
             placeholder="Enter a breed"
             onChange={this.handleChange}
           />
+          <Label>Picture:</Label>
+          <Form.Input 
+            type="text"
+            name="image"
+            value={this.state.image}  
+            placeholder="Paste image URL here: "
+            onChange={this.handleChange}
+          />
           <Button type="Submit">Create Dog</Button>
         </Form>
       </Segment>

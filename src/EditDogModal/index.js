@@ -11,7 +11,8 @@ export default class EditDogModal extends Component {
 
     this.state = {
       name: props.dogToEdit.name,
-      breed: props.dogToEdit.breed
+      breed: props.dogToEdit.breed,
+      image: props.dogToEdit.image
     }
   }  
 
@@ -48,6 +49,14 @@ export default class EditDogModal extends Component {
               name="breed"
               value={this.state.breed}  
               placeholder="Enter a breed"
+              onChange={this.handleChange}
+            />
+            <Label>Picture:</Label>
+            <Form.Input 
+              type="text"
+              name="image"
+              value={this.state.image}  
+              placeholder="Paste image URL here: "
               onChange={this.handleChange}
             />
             <Modal.Actions>

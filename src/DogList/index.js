@@ -12,8 +12,8 @@ export default function DogList(props) {
         <Card.Content textAlign={"center"}>        
           <Image 
             src={dog.image}
-            size='mini'
-            floated='right'
+            size='medium'
+            floated='center'
           />
             <Card.Header>
               {dog.name}
@@ -22,7 +22,7 @@ export default function DogList(props) {
               {dog.breed}
             </Card.Meta>
             <Card.Description>
-              {dog.name} is a {dog.breed} that belongs to {dog.owner.username}
+              {dog.name} is a {dog.breed} who is loved by {dog.owner.username}
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign={"center"}> 
