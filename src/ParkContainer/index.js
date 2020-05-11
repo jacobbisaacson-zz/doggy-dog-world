@@ -41,7 +41,6 @@ export default function ParkContainer() {
   }
 
   const createPark = async (parkToAdd) => {
-
     try {
       const url = process.env.REACT_APP_API_URL + "/api/v1/parks/"
       const createParkResponse = await fetch(url, {
@@ -60,9 +59,10 @@ export default function ParkContainer() {
       console.error("Error adding PARK")
       console.error(err)
     }
-  } //create PARK
+  }
 
   const editPark = (idOfParkToEdit) => setIdOfParkToEdit(idOfParkToEdit)
+
   const updatePark = async (updatedParkInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/parks/" + idOfParkToEdit
     try {
@@ -88,7 +88,7 @@ export default function ParkContainer() {
       console.error(err)
     }
 
-  }// updateDog
+  }
 
   const closeModal = () => setIdOfParkToEdit(-1)
 
@@ -113,7 +113,7 @@ export default function ParkContainer() {
       }
     </React.Fragment>
   )
-} // Component
+}
 
 
 

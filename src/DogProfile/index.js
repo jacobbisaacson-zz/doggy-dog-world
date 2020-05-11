@@ -58,13 +58,14 @@ export default function DogProfile() {
         setDogs([...dogs, createDogJson.data])
       }
     } catch(err) {
-      console.error("Error adding dog")
+      console.error("Error adding DOGGY")
       console.error(err)
     }
 
-  } //create Dog
+  }
 
   const editDog = (idOfDogToEdit) => setIdOfDogToEdit(idOfDogToEdit)
+
   const updateDog = async (updatedDogInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/dogs/" + idOfDogToEdit
     try {
@@ -88,8 +89,7 @@ export default function DogProfile() {
       console.error(err)
     }
 
-  }// updateDog
-
+  }
 
   const closeModal = () => setIdOfDogToEdit(-1)
   return(

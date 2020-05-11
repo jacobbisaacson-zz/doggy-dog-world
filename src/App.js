@@ -24,7 +24,7 @@ export default function App() {
       const registerJson = await registerResponse.json()
 
       // LOOK AT FORM VALIDATION
-      
+
       if(registerResponse.status === 201) {
         setLoggedIn(true)
         setLoggedInUserUsername(registerJson.data.username)
@@ -35,14 +35,14 @@ export default function App() {
       console.error(err)      
     }
 
-  } // register end
+  }
 
   const login = async (loginInfo) => {
     const url = process.env.REACT_APP_API_URL + '/api/v1/users/login'
 
     try {
       const loginResponse = await fetch(url, {
-        credentials: 'include', // sends cookie
+        credentials: 'include',
         method: 'POST',
         body: JSON.stringify(loginInfo),
         headers: {
@@ -61,7 +61,7 @@ export default function App() {
       console.error(error)
     }
 
-  } // login end
+  }
 
   const logout = async () => {
     try {

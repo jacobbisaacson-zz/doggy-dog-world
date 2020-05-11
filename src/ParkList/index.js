@@ -9,7 +9,7 @@ export default function ParkList(props) {
         key={park.id} 
         color={"red"}
       >
-        <Card.Content textAlign={"center"}>        
+        <Card.Content textAlign={"center"}>
             <Card.Header>
               {park.name}
             </Card.Header>
@@ -33,14 +33,17 @@ export default function ParkList(props) {
               Edit {park.name}
             </Button>
         </Card.Content>
-      </Card>
+      </Card>     
     )
   })
 
   return (
-    <Card.Group centered={true}>
-      {parks}
-    </Card.Group>
+    <React.Fragment>
+      <h3> Dog Park List </h3>
+      <Card.Group centered={true}>
+        {parks}
+      </Card.Group>
+    </React.Fragment>
   )
 }
 
