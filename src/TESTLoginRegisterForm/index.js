@@ -37,8 +37,15 @@ export default function TESTLoginRegisterForm(props) {
             placeholder="Enter a username"
             // value={userInfo.username}
             // onChange={handleChange}
-            ref={register({ required: true, minLength: 5 })}
+            ref={register({ 
+              required: 'A Username is Required', 
+              minLength: {
+                value: 5,
+                message: 'Minimum username length is 5 characters',
+              },
+            })}
           />
+          { errors.username && errors.username.message }
           <label>Password</label>
           <input
             type="password"
@@ -46,8 +53,15 @@ export default function TESTLoginRegisterForm(props) {
             placeholder="Enter a password"
             // value={userInfo.password}
             // onChange={handleChange}
-            ref={register({ required: true, minLength: 3 })}
+            ref={register({ 
+              required: 'A Password is Required', 
+              minLength: {
+                value: 5,
+                message: 'Minimum password length is 5 characters',
+              },
+            })}
           />
+          { errors.password && errors.password.message }
         <input type="submit" />
       </form>
       {
