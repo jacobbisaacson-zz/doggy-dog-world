@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button, Input, Select, TextArea, } from 'semantic-ui-react'
+import { Form, Button, Input, Select, TextArea } from 'semantic-ui-react'
 import '../index.css'
 
 const options = [

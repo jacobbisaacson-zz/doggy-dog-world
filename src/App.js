@@ -15,7 +15,7 @@ export default function App() {
 
     try {
       const registerResponse = await fetch(url, {
-        credentials: 'include', // sends the cookie
+        credentials: 'include',
         method: 'POST',
         body: JSON.stringify(registerInfo),
         headers: {
@@ -23,8 +23,6 @@ export default function App() {
         }
       })
       const registerJson = await registerResponse.json()
-
-      // LOOK AT FORM VALIDATION
 
       if(registerResponse.status === 201) {
         setLoggedIn(true)

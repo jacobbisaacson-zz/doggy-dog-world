@@ -22,7 +22,6 @@ export default function LoginRegisterForm({login, register}) {
 
   const handleChange = (event) => {
     setUserInfo({
-      // BELOW IS SPREAD OPERATOR (takes the old info)
       ...userInfo,
       [event.target.name]: event.target.value
     })
@@ -30,8 +29,6 @@ export default function LoginRegisterForm({login, register}) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-
-    // LOOK AT VALIDATING THIS FORM
 
     if(action === "Register") {
       register(userInfo)
@@ -52,6 +49,7 @@ export default function LoginRegisterForm({login, register}) {
           placeholder="Enter a username"
           value={userInfo.username}
           onChange={handleChange}
+          
         />
         <Label>Password:</Label>
         <Form.Input 
@@ -62,7 +60,7 @@ export default function LoginRegisterForm({login, register}) {
           onChange={handleChange}
         />
         <Button type="Submit">
-          { action === "Login" ? "Log in" : "Sign up"}
+          { action === "Login" ? "Log in" : "Sign up" }
         </Button>
       </Form>
       {
@@ -75,9 +73,7 @@ export default function LoginRegisterForm({login, register}) {
         <p>
           Already have an account? Log in <span className="fake-link" onClick={switchForm}>here</span>.
         </p>
-
       }
-
     </React.Fragment>      
   )
 
