@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Button, Label, Segment } from 'semantic-ui-react'
+import '../index.css'
 
 export default function AddDogForm({createDog}) {
   const [dog, setDog] = useState({
@@ -23,7 +24,10 @@ export default function AddDogForm({createDog}) {
   return (
     <Segment>
       <h4>Add new dog:</h4>
-      <Form onSubmit={handleSubmit}>
+      <Form 
+        onSubmit={handleSubmit}
+        className="this-form"
+      >
         <Label>Name:</Label>
         <Form.Input 
           type="text"

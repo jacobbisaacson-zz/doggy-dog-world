@@ -3,9 +3,9 @@ body {
 }
 
 .fake-link {
-	cursor: pointer;
-	color: blue;
-	text-decoration: underline;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
 }
 
 .add-user-form {
@@ -24,4 +24,11 @@ body {
   width: 95%;
   padding: 10px;
   border: 1px solid black;
+}
+
+.this-form {
+  margin: 0 auto;
+  width: 95%;
+  padding: 10px;
+  border: 2px solid navy;
 }

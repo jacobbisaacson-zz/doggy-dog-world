@@ -107,9 +107,7 @@ export default function App() {
         </React.Fragment>
         :
         <React.Fragment>
-        <RegisterForm 
-          // login={login}
-          register={register}
+        <RegisterForm register={register}
         />
         <LoginForm login={login}/>
         </React.Fragment>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Input, Select, TextArea } from 'semantic-ui-react'
 import '../index.css'
+// import '../styles.css'
 
 const options = [
     { key: 'v', text: 'Very', value: 'very' },
@@ -32,10 +33,8 @@ export default function AddUserForm({createUser}) {
   return (
     <Form 
       onSubmit={handleSubmit}
-      className='add-user-form'
+      className="this-form"
     >
-      <Form.Group 
-        widths='equal'>
         <Form.Field
           control={Input}
           label='Name'
@@ -71,22 +70,15 @@ export default function AddUserForm({createUser}) {
           placeholder='How important is a big dog park to you?: '
           onChange={handleChange}
         />
-      </Form.Group>
-      <Form.Group 
-        inline
-        className="notes-text-box"
-      >
         <Form.Field
           control={TextArea}
           label='Notes'
           placeholder="Anything else you'd like to let us know?: "
         />
-      </Form.Group>
         <Form.Field control={Button}>Submit</Form.Field>
     </Form>
   )
 }
-
 
 
 

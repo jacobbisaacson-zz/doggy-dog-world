@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+// import { useForm } from 'react-hook-form'
 import AddUserForm from '../AddUserForm'
 // import UserList from '../UserList'
 // import edit user modal
@@ -6,7 +7,6 @@ import AddUserForm from '../AddUserForm'
 export default function UserProfile() {
   const [users, setUsers] = useState([])
   // const [idOfUserToEdit, setIdOfUserToEdit] = useState(-1)
-
   useEffect(() => {
     getUsers()
   }, [])
