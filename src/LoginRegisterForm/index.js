@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Button, Label } from 'semantic-ui-react'
-import useForm from 'react-hook-form'
+// import useForm from 'react-hook-form'
 import '../index.css'
 
 
@@ -9,8 +9,6 @@ export default function LoginRegisterForm({login, register}) {
     password: '',
     username: ''  
   })
-
-  const { register } = useForm()
   
   const [action, setAction] = useState('Login')
 

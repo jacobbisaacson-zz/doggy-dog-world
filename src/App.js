@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import ProfileContainer from './ProfileContainer'
-import LoginRegisterForm from './LoginRegisterForm'
+// import LoginRegisterForm from './LoginRegisterForm'
+import TESTLoginRegisterForm from './TESTLoginRegisterForm'
 import Header from './Header'
 
 
@@ -92,7 +93,7 @@ export default function App() {
           <ProfileContainer />
         </React.Fragment>
         :
-        <LoginRegisterForm 
+        <TESTLoginRegisterForm 
           login={login}
           register={register}
         />
