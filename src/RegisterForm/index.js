@@ -22,12 +22,12 @@ export default function RegisterForm(props) {
           <input
             type="text"
             name="username"
-            placeholder="Enter a username"
+            placeholder="Choose a username"
             ref={register({ 
               required: 'A Username is Required', 
               minLength: {
                 value: 3,
-                message: 'Minimum username length is 3 characters',
+                message: 'Your username is too short!',
               },
             })}
           />
@@ -41,7 +41,7 @@ export default function RegisterForm(props) {
               required: 'A Password is Required', 
               minLength: {
                 value: 3,
-                message: 'Minimum password length is 3 characters',
+                message: 'Make a stronger password!',
               },
             })}
           />

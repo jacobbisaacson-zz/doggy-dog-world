@@ -14,7 +14,8 @@ export default function ParkList(props) {
               {park.name}
             </Card.Header>
             <Card.Description>
-              {park.name} is a located at ___ and was created by
+              Located at: {park.location} || 
+              Posted by: {park.owner.username}
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign={"center"}> 

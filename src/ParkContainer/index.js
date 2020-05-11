@@ -13,7 +13,7 @@ export default function ParkContainer() {
 
   const getParks = async () => {
     try {
-      const url = process.env.REACT_APP_API_URL + "/api/v1/parks/"
+      const url = process.env.REACT_APP_API_URL + "/api/v1/parks/all"
       const parksResponse = await fetch(url, {
         credentials: 'include'
       })

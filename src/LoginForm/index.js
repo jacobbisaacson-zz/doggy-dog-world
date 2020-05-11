@@ -19,7 +19,7 @@ export default function LoginForm(props) {
           <input
             type="text"
             name="username"
-            placeholder="Enter a username"
+            placeholder="Enter your username"
             ref={register({ 
               required: 'A Username is Required', 
               minLength: {
@@ -33,7 +33,7 @@ export default function LoginForm(props) {
           <input
             type="password"
             name="password"
-            placeholder="Enter a password"
+            placeholder="Enter your password"
             ref={register({ 
               required: 'A Password is Required', 
               minLength: {

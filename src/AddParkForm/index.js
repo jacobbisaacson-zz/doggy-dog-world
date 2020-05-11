@@ -42,6 +42,7 @@ export default function NewParkForm({ createPark }) {
           onSubmit={handleSubmit}
           control={Input}
           label='Name'
+          name='name'
           placeholder="Enter Park Name: "
           onChange={handleChange}
         />
@@ -49,6 +50,7 @@ export default function NewParkForm({ createPark }) {
           onSubmit={handleSubmit}
           control={Input}
           label='Location'
+          name='location'
           placeholder="Enter Park Location: "
           onChange={handleChange}
         />
@@ -56,6 +58,7 @@ export default function NewParkForm({ createPark }) {
           onSubmit={handleSubmit}
           control={Select}
           label='Clean'
+          name='clean'
           options={options}
           placeholder="Is this park CLEAN?: "
           onChange={handleChange}
@@ -64,6 +67,7 @@ export default function NewParkForm({ createPark }) {
           onSubmit={handleSubmit}
           control={Select}
           label='Big'
+          name='big'
           options={options}
           placeholder="Is this park BIG?: "
           onChange={handleChange}
@@ -72,6 +76,7 @@ export default function NewParkForm({ createPark }) {
           onSubmit={handleSubmit}
           control={Select}
           label='Fenced'
+          name='fenced'
           options={options}
           placeholder="Is this park FENCED?: "
           onChange={handleChange}
@@ -80,6 +85,7 @@ export default function NewParkForm({ createPark }) {
           onSubmit={handleSubmit}
           control={Select}
           label='Busy'
+          name='busy'
           options={options}
           placeholder="Is this park BUSY?: "
           onChange={handleChange}

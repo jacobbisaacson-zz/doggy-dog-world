@@ -9,7 +9,7 @@ const options = [
     { key: 'm', text: 'Meh...', value: 'meh' },
 ]
 
-export default function AddUserForm({createUser}) {
+export default function AddUserForm({ createUser }) {
   const [userProfile, setUserProfile] = useState({
     name: '',
     clean: '',
@@ -38,6 +38,7 @@ export default function AddUserForm({createUser}) {
         <Form.Field
           control={Input}
           label='Name'
+          name='name'
           // value={this.state.name}
           placeholder="What's your name, human?: "
           onChange={handleChange}
@@ -45,6 +46,7 @@ export default function AddUserForm({createUser}) {
         <Form.Field
           control={Select}
           label='Clean'
+          name='clean'
           options={options}
           placeholder='How important is a clean dog park to you?: '
           onChange={handleChange}
@@ -52,6 +54,7 @@ export default function AddUserForm({createUser}) {
         <Form.Field
           control={Select}
           label='Fenced'
+          name='fenced'
           options={options}
           placeholder='How important is a fenced-in dog park to you?: '
           onChange={handleChange}
@@ -59,6 +62,7 @@ export default function AddUserForm({createUser}) {
         <Form.Field
           control={Select}
           label='Busy'
+          name='busy'
           options={options}
           placeholder='How important is a busy dog park to you?: '
           onChange={handleChange}
@@ -66,6 +70,7 @@ export default function AddUserForm({createUser}) {
         <Form.Field
           control={Select}
           label='Big'
+          name='big'
           options={options}
           placeholder='How important is a big dog park to you?: '
           onChange={handleChange}
@@ -73,6 +78,7 @@ export default function AddUserForm({createUser}) {
         <Form.Field
           control={TextArea}
           label='Notes'
+          name='note'
           placeholder="Anything else you'd like to let us know?: "
         />
         <Form.Field control={Button}>Submit</Form.Field>

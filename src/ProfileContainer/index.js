@@ -11,11 +11,16 @@ export default function ProfileContainer() {
       <UserProfile />
       <DogProfile />
       <ParkContainer />
-
     </React.Fragment>
   )
 }
 
+
+// conditional logic to display only what we want at the time
+// when you register -- the ADD user profile (add user profile) shoudl render
+// when you log in, the regular user profile render should happen
+
+// when to render the dog list, the parks list, and all the forms?
 
 
 
