@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
+import { useForm } from "react-hook-form";
 import ProfileContainer from './ProfileContainer'
 // import LoginRegisterForm from './LoginRegisterForm'
 import TESTLoginRegisterForm from './TESTLoginRegisterForm'
+import LoginForm from './LoginForm'
 import Header from './Header'
 
 
@@ -33,7 +35,6 @@ export default function App() {
       console.error("Error trying to register with API")
       console.error(err)      
     }
-
   }
 
   const login = async (loginInfo) => {
@@ -59,7 +60,6 @@ export default function App() {
       console.error("Error trying to log in")
       console.error(error)
     }
-
   }
 
   const logout = async () => {
@@ -87,14 +87,19 @@ export default function App() {
         loggedIn
         ?
         <React.Fragment>
-          <Header username={loggedInUserUsername} logout={logout} />
+          <Header 
+            username={loggedInUserUsername} 
+            logout={logout} />
           <ProfileContainer />
         </React.Fragment>
         :
+        <React.Fragment>
         <TESTLoginRegisterForm 
-          login={login}
+          // login={login}
           register={register}
         />
+        <LoginForm login={login}/>
+        </React.Fragment>
       }
     </div>
   );    

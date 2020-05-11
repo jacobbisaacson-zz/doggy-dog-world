@@ -16,7 +16,7 @@ export default function TESTLoginRegisterForm(props) {
   // }
 
   const onSubmit = data => {
-    props.register(data)
+    props.login(data)
     // alert("Congrats on registering for Doggy Dog World!");
     console.log("username and password data:", JSON.stringify(data));
   };
@@ -26,8 +26,7 @@ export default function TESTLoginRegisterForm(props) {
 
   return (
     <React.Fragment>
-      <h1 className="h1-register-form">It's a Doggy Dog World</h1>
-      <h2 className="h2-register-form">Register Here!</h2>
+      <h3 className="h2-register-form">Already Registered? Log In Here!</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
           <label>Username</label>
           <input
