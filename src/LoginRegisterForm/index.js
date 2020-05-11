@@ -76,7 +76,6 @@ export default function LoginRegisterForm({login, register}) {
       }
     </React.Fragment>      
   )
-
 }
 
 

@@ -1,19 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-// import LoginForm from './LoginForm'
 import "../styles.css";
 
-export default function TESTLoginRegisterForm(props) {
+export default function RegisterForm(props) {
   const { register, errors, handleSubmit } = useForm();
-  // const [action, setAction] = useState('Register')
-
-  // const switchForm = () => {
-  //   if(action === 'Login') {
-  //     setAction('Register')
-  //   } else {
-  //     setAction('Login')
-  //   }
-  // }
 
   const onSubmit = data => {
     props.register(data)
@@ -23,7 +13,6 @@ export default function TESTLoginRegisterForm(props) {
   console.log("errors with username / password", errors);
   // if error logging in because of validation stuff, show alert saying so
   // if works, show alert saying congrats!
-
   return (
     <React.Fragment>
       <h1 className="h1-register-form">It's a Doggy Dog World</h1>
@@ -57,7 +46,7 @@ export default function TESTLoginRegisterForm(props) {
             })}
           />
           { errors.password && errors.password.message }
-        <input type="submit" />
+        <input type="submit"/>
       </form>
     </React.Fragment>
   );
