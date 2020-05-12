@@ -4,7 +4,6 @@ import "../styles.css";
 
 export default function RegisterForm(props) {
   const { register, errors, handleSubmit } = useForm();
-
   const onSubmit = data => {
     props.register(data)
     // alert("Congrats on registering for Doggy Dog World!");

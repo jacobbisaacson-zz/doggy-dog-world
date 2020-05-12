@@ -21,14 +21,13 @@ export default function ParkShow({ parkToShow, closeParkModal }) {
           <Header>{park.name}'s Details:</Header>
             <small>(as rated by user, on a scale from 1-3)</small>
             <p className='park-show-p'>Located at {park.location}</p>
-            <p className='park-show-p'>How Clean?:<br></br>{park.clean}</p>
-            <p className='park-show-p'>How Big?:<br></br>{park.big}</p>
-            <p className='park-show-p'>How Fenced-In?:<br></br>{park.fenced}</p>
-            <p className='park-show-p'>How Busy?:<br></br>{park.clean}</p>
+            <p className='park-show-p'>How Clean?<br></br>{park.clean}</p>
+            <p className='park-show-p'>How Big?<br></br>{park.big}</p>
+            <p className='park-show-p'>How Fenced-In?<br></br>{park.fenced}</p>
+            <p className='park-show-p'>How Busy?<br></br>{park.clean}</p>
         </Modal.Description>
       </Modal.Content>
     </Modal>
-
   )
 }
 

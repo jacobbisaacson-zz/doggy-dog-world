@@ -31,16 +31,18 @@ export default function DogList(props) {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign={"center"}> 
-            <Button 
-              basic 
-              color='red'
+            <Button  
+              inverted color='red'
+              size='small'
+              floated='right'
               onClick={ () => props.deleteDog(dog.id) }
             >
               Delete {dog.name}
             </Button>
-            <Button 
-              basic 
-              color='green'
+            <Button
+              inverted color='blue'
+              size='small'
+              floated='left'
               onClick={ () => props.editDog(dog.id) }
             >
               Edit {dog.name}

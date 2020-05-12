@@ -4,8 +4,7 @@ import '../index.css'
 export default function Header(props) {
   const headerStyle = {
     textAlign: "right",
-    padding: "10px",
-    backgroundColor: "#DDDDDD"
+    padding: "10px"
   }
   return(
     <nav style={headerStyle}>

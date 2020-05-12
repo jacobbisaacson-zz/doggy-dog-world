@@ -28,28 +28,30 @@ export default function ParkList(props) {
           </Card.Content>
           <Card.Content 
             textAlign={"center"}
-          > 
+          >
             <Button 
-              basic 
-              color='red'
+              inverted color='red'
+              size='small'
               onClick={ () => props.deletePark(park.id) }
             >
-              Delete {park.name}
+              Delete
             </Button>
             <Button 
-              basic 
-              color='green'
+              inverted color='blue'
+              size='small'
               onClick={ () => props.editPark(park.id) }
             >
-              Edit {park.name}
+              Edit
             </Button>
-            <Button 
-              basic 
-              color='blue'
-              onClick={ () => props.showPark(park.id) }
-            >
-              See {park.name}'s Info
-            </Button>
+            <div>
+              <Button 
+                inverted color='green'
+                size='medium'
+                onClick={ () => props.showPark(park.id) }
+              >
+                See {park.name}
+              </Button>
+            </div>
         </Card.Content>
       </Card>     
     )
@@ -57,7 +59,6 @@ export default function ParkList(props) {
 
   return (
     <React.Fragment>
-      <h3> Dog Park List </h3>
       <Card.Group 
         centered={true}
       >

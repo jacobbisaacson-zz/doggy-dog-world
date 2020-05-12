@@ -6,18 +6,12 @@ import ProfileContainer from './ProfileContainer'
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 import Header from './Header'
+// import Flash from './Flash'
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
-  // const [action, setAction] = useState('Login')
-  // const switchForm = () => {
-  //   if(action === "Login") {
-  //     setAction('Register')
-  //   } else {
-  //     setAction('Login')
-  //   }
-  // }
+
   const register = async (registerInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/users/register"
 

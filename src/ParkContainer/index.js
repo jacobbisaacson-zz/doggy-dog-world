@@ -99,15 +99,15 @@ export default function ParkContainer() {
 
   return(
     <React.Fragment>
-      <h2>DOG PARKS!</h2>
-      <AddParkForm
-        createPark={createPark} 
-      />
+      <h2>Find a Dog Park!</h2>
       <ParkList
         parks={parks} 
         deletePark={deletePark}
         editPark={editPark}
         showPark={showPark}
+      />
+      <AddParkForm
+        createPark={createPark} 
       />
       { 
         idOfParkToEdit !== -1 
