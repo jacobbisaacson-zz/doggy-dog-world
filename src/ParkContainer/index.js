@@ -7,6 +7,7 @@ import ParkShow from '../ParkShow'
 export default function ParkContainer() {
   const [parks, setParks] = useState([])
   const [idOfParkToEdit, setIdOfParkToEdit] = useState(-1)
+  const [idOfParkToShow, setIdOfParkToShow] = useState(-1)
 
   useEffect(() => {
     getParks()
@@ -28,7 +29,15 @@ export default function ParkContainer() {
   const showPark = async (idOfParkToShow) => {
     try {
       const url = process.env.REACT_APP_API_URL + "/api/v1/parks/" + idOfParkToShow
-      const showParkResponse = await fetch(url)
+      const showParkResponse = await fetch(url, {
+        body: JSON.stringify(idOfParkToShow)
+      })
+      if(showParkResponse.status === 200) {
+        const indexOfParkBeingShown = parks.findIndex(park => park.id === idOfParkToShow)
+        parks[indexOfParkBeingShown] = showParkJson.data
+        setParks(parks)
+        setIdOfParkToShow(-1)
+      }
       const showParkJson = await showParkResponse.json()
       setParks(showParkJson.data)
     } catch(err) {
@@ -114,9 +123,10 @@ export default function ParkContainer() {
         parks={parks} 
         deletePark={deletePark}
         editPark={editPark}
-        showPark={showPark}
       />
-      <ParkShow />
+      <ParkShow
+        showPark={parks.find((park) => park.id === idOfParkToShow)} 
+      />
       { 
         idOfParkToEdit !== -1 
         && 

@@ -9,7 +9,8 @@ export default function ParkList(props) {
       <Card 
         key={park.id} 
         color={"black"}
-        // href='{https://www.google.com}'
+        link
+        onClick={props.showPark}
       >
         <Card.Content 
           textAlign={"center"}
