@@ -26,26 +26,7 @@ export default function ParkContainer() {
     }
   }
 
-
   const showPark = (idOfParkToShow) => setIdOfParkToShow(idOfParkToShow)
-  // const showPark = async (idOfParkToShow) => {
-  //   try {
-  //     const url = process.env.REACT_APP_API_URL + "/api/v1/parks/" + idOfParkToShow
-  //     const showParkResponse = await fetch(url, {
-  //       body: JSON.stringify(idOfParkToShow)
-  //     })
-  //     if(showParkResponse.status === 200) {
-  //       const indexOfParkBeingShown = parks.findIndex(park => park.id === idOfParkToShow)
-  //       parks[indexOfParkBeingShown] = showParkJson.data
-  //       setParks(parks)
-  //       setIdOfParkToShow(-1)
-  //     }
-  //     const showParkJson = await showParkResponse.json()
-  //     setParks(showParkJson.data)
-  //   } catch(err) {
-  //     console.error("Error getting the Park Data that the User clicked on", err);
-  //   }
-  // }
 
   const deletePark = async (idOfParkToDelete) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/parks/" + idOfParkToDelete
@@ -114,14 +95,15 @@ export default function ParkContainer() {
   }
 
   const closeModal = () => setIdOfParkToEdit(-1)
+  const closeParkModal = () => setIdOfParkToShow(-1)
 
   return(
     <React.Fragment>
       <h2>DOG PARKS!</h2>
-      <AddParkForm 
+      <AddParkForm
         createPark={createPark} 
       />
-      <ParkList 
+      <ParkList
         parks={parks} 
         deletePark={deletePark}
         editPark={editPark}
@@ -130,7 +112,7 @@ export default function ParkContainer() {
       { 
         idOfParkToEdit !== -1 
         && 
-        <EditParkModal 
+        <EditParkModal
           key={idOfParkToEdit}
           parkToEdit={parks.find((park) => park.id === idOfParkToEdit)}
           updatePark={updatePark}
@@ -143,7 +125,7 @@ export default function ParkContainer() {
         <ParkShow 
           key={idOfParkToShow}
           parkToShow={parks.find((park) => park.id === idOfParkToShow)}
-          closeModal={closeModal}
+          closeParkModal={closeParkModal}
         /> 
       }
     </React.Fragment>
