@@ -16,6 +16,7 @@ export default function NewParkForm({ createPark }) {
     big: '',
     fenced: '',
     busy: '',
+    image: '',
     location: ''
   })
 
@@ -88,6 +89,14 @@ export default function NewParkForm({ createPark }) {
           name='busy'
           options={options}
           placeholder="Is this park BUSY?: "
+          onChange={handleChange}
+        />
+        <Form.Field
+          onSubmit={handleSubmit}
+          control={Input}
+          label='Image'
+          name='image'
+          placeholder="Paste Park's image URL here: "
           onChange={handleChange}
         />
         <Form.Field control={Button}>Submit</Form.Field>

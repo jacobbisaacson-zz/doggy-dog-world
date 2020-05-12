@@ -112,7 +112,11 @@ export default function App() {
         <LoginForm login={login}/>
         </React.Fragment>
       }
+        <div className="footer-style">
+          <footer><small>built by jbi</small></footer>
+        </div>
     </div>
   );    
 
 }
+

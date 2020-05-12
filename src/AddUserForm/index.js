@@ -46,7 +46,7 @@ export default function AddUserForm({ createUser }) {
         <Form.Field
           control={Select}
           label='Clean'
-          name='clean'
+          name='clean_pref'
           options={options}
           placeholder='How important is a clean dog park to you?: '
           onChange={handleChange}
@@ -54,7 +54,7 @@ export default function AddUserForm({ createUser }) {
         <Form.Field
           control={Select}
           label='Fenced'
-          name='fenced'
+          name='fenced_pref'
           options={options}
           placeholder='How important is a fenced-in dog park to you?: '
           onChange={handleChange}
@@ -62,7 +62,7 @@ export default function AddUserForm({ createUser }) {
         <Form.Field
           control={Select}
           label='Busy'
-          name='busy'
+          name='busy_pref'
           options={options}
           placeholder='How important is a busy dog park to you?: '
           onChange={handleChange}
@@ -70,7 +70,7 @@ export default function AddUserForm({ createUser }) {
         <Form.Field
           control={Select}
           label='Big'
-          name='big'
+          name='big_pref'
           options={options}
           placeholder='How important is a big dog park to you?: '
           onChange={handleChange}

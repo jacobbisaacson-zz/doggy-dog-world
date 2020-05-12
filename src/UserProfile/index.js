@@ -4,7 +4,8 @@ import AddUserForm from '../AddUserForm'
 // import UserList from '../UserList'
 // import edit user modal
 
-export default function UserProfile() {
+export default function UserProfile(props) {
+  console.log("THIS IS THE USER'S PROFILE (props in USER PROFILE)", props);
   const [users, setUsers] = useState([])
   // const [idOfUserToEdit, setIdOfUserToEdit] = useState(-1)
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function UserProfile() {
 
   const getUsers = async () => {
     try {
-      const url = process.env.REACT_APP_API_URL + "/api/v1/users/"
+      const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/show"
       const usersResponse = await fetch(url, {
         credentials: 'include'
       })
@@ -26,7 +27,7 @@ export default function UserProfile() {
 
   const createUser = async (userToAdd) => {
     try {
-      const url = process.env.REACT_APP_API_URL + "/api/v1/users/"
+      const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/"
       const createUserResponse = await fetch(url, {
         credentials: 'include',
         method: 'POST',

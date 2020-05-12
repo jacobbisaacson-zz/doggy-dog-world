@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button } from 'semantic-ui-react'
+import { Card, Button, Image } from 'semantic-ui-react'
 
 export default function ParkList(props) {
   console.log("THIS IS THE USER'S PARK LIST (props in ParkList)", props);
@@ -7,9 +7,14 @@ export default function ParkList(props) {
     return(
       <Card 
         key={park.id} 
-        color={"red"}
+        color={"blue"}
       >
         <Card.Content textAlign={"center"}>
+          <Image 
+            src={park.image}
+            size='medium'
+            floated='left'
+          />
             <Card.Header>
               {park.name}
             </Card.Header>
