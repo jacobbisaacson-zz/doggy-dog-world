@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AddParkForm from '../AddParkForm'
 import ParkList from '../ParkList'
 import EditParkModal from '../EditParkModal'
-import ParkShow from '../ParkShow'
+// import ParkShow from '../ParkShow'
 
 export default function ParkContainer() {
   const [parks, setParks] = useState([])
@@ -26,24 +26,26 @@ export default function ParkContainer() {
     }
   }
 
-  const showPark = async (idOfParkToShow) => {
-    try {
-      const url = process.env.REACT_APP_API_URL + "/api/v1/parks/" + idOfParkToShow
-      const showParkResponse = await fetch(url, {
-        body: JSON.stringify(idOfParkToShow)
-      })
-      if(showParkResponse.status === 200) {
-        const indexOfParkBeingShown = parks.findIndex(park => park.id === idOfParkToShow)
-        parks[indexOfParkBeingShown] = showParkJson.data
-        setParks(parks)
-        setIdOfParkToShow(-1)
-      }
-      const showParkJson = await showParkResponse.json()
-      setParks(showParkJson.data)
-    } catch(err) {
-      console.error("Error getting the Park Data that the User clicked on", err);
-    }
-  }
+
+  const showPark = (idOfParkToShow) => setIdOfParkToShow(idOfParkToShow)
+  // const showPark = async (idOfParkToShow) => {
+  //   try {
+  //     const url = process.env.REACT_APP_API_URL + "/api/v1/parks/" + idOfParkToShow
+  //     const showParkResponse = await fetch(url, {
+  //       body: JSON.stringify(idOfParkToShow)
+  //     })
+  //     if(showParkResponse.status === 200) {
+  //       const indexOfParkBeingShown = parks.findIndex(park => park.id === idOfParkToShow)
+  //       parks[indexOfParkBeingShown] = showParkJson.data
+  //       setParks(parks)
+  //       setIdOfParkToShow(-1)
+  //     }
+  //     const showParkJson = await showParkResponse.json()
+  //     setParks(showParkJson.data)
+  //   } catch(err) {
+  //     console.error("Error getting the Park Data that the User clicked on", err);
+  //   }
+  // }
 
   const deletePark = async (idOfParkToDelete) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/parks/" + idOfParkToDelete
@@ -123,9 +125,7 @@ export default function ParkContainer() {
         parks={parks} 
         deletePark={deletePark}
         editPark={editPark}
-      />
-      <ParkShow
-        showPark={parks.find((park) => park.id === idOfParkToShow)} 
+        showPark={showPark}
       />
       { 
         idOfParkToEdit !== -1 
@@ -142,5 +142,7 @@ export default function ParkContainer() {
 }
 
 
+
+// <ParkShow showPark={showPark} />
 
 

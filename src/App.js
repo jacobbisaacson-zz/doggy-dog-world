@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-
 // import { useForm } from "react-hook-form";
-
 import ProfileContainer from './ProfileContainer'
-
 // import LoginRegisterForm from './LoginRegisterForm'
-
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 import Header from './Header'
@@ -14,9 +10,7 @@ import Header from './Header'
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
-
   // const [action, setAction] = useState('Login')
-
   // const switchForm = () => {
   //   if(action === "Login") {
   //     setAction('Register')
@@ -24,7 +18,6 @@ export default function App() {
   //     setAction('Login')
   //   }
   // }
-
   const register = async (registerInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/users/register"
 

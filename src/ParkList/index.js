@@ -9,8 +9,8 @@ export default function ParkList(props) {
       <Card 
         key={park.id} 
         color={"black"}
-        link
-        onClick={props.showPark}
+        // link
+        // onClick={props.showPark.park.id}
       >
         <Card.Content 
           textAlign={"center"}
@@ -46,6 +46,13 @@ export default function ParkList(props) {
               onClick={ () => props.editPark(park.id) }
             >
               Edit {park.name}
+            </Button>
+            <Button 
+              basic 
+              color='blue'
+              onClick={ () => props.showPark(park.id) }
+            >
+              See {park.name}'s Info
             </Button>
         </Card.Content>
       </Card>     
