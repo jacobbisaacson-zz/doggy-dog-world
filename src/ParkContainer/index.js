@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AddParkForm from '../AddParkForm'
 import ParkList from '../ParkList'
 import EditParkModal from '../EditParkModal'
-// import ParkShow from '../ParkShow'
+import ParkShow from '../ParkShow'
 
 export default function ParkContainer() {
   const [parks, setParks] = useState([])
@@ -134,6 +134,15 @@ export default function ParkContainer() {
           key={idOfParkToEdit}
           parkToEdit={parks.find((park) => park.id === idOfParkToEdit)}
           updatePark={updatePark}
+          closeModal={closeModal}
+        /> 
+      }
+      { 
+        idOfParkToShow !== -1 
+        && 
+        <ParkShow 
+          key={idOfParkToShow}
+          parkToShow={parks.find((park) => park.id === idOfParkToShow)}
           closeModal={closeModal}
         /> 
       }
