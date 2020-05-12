@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AddParkForm from '../AddParkForm'
 import ParkList from '../ParkList'
 import EditParkModal from '../EditParkModal'
+import ParkShow from '../ParkShow'
 
 export default function ParkContainer() {
   const [parks, setParks] = useState([])
@@ -21,6 +22,17 @@ export default function ParkContainer() {
       setParks(parksJson.data)
     } catch(err) {
       console.error("Error getting PARK data.", err)
+    }
+  }
+
+  const showPark = async (idOfParkToShow) => {
+    try {
+      const url = process.env.REACT_APP_API_URL + "/api/v1/parks/" + idOfParkToShow
+      const showParkResponse = await fetch(url)
+      const showParkJson = await showParkResponse.json()
+      setParks(showParkJson.data)
+    } catch(err) {
+      console.error("Error getting the Park Data that the User clicked on", err);
     }
   }
 
@@ -95,12 +107,16 @@ export default function ParkContainer() {
   return(
     <React.Fragment>
       <h2>DOG PARKS!</h2>
-      <AddParkForm createPark={createPark} />
+      <AddParkForm 
+        createPark={createPark} 
+      />
       <ParkList 
         parks={parks} 
         deletePark={deletePark}
         editPark={editPark}
+        showPark={showPark}
       />
+      <ParkShow />
       { 
         idOfParkToEdit !== -1 
         && 

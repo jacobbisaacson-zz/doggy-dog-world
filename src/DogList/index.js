@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Button, Image } from 'semantic-ui-react'
+import '../App.css'
 
 export default function DogList(props) {
   console.log("THIS IS THE USER'S DOG LIST (props in DogList)", props);
@@ -7,7 +8,7 @@ export default function DogList(props) {
     return(
       <Card 
         key={dog.id} 
-        color={"pink"}
+        color={"black"}
       >
         <Card.Content textAlign={"center"}>        
           <Image 
@@ -22,7 +23,11 @@ export default function DogList(props) {
               {dog.breed}
             </Card.Meta>
             <Card.Description>
-              {dog.name} is a {dog.breed} who is loved by {dog.owner.username}
+              Name: {dog.name}
+              <br/>
+              Breed: {dog.breed}
+              <br/>
+              Loved by: {dog.owner.username}
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign={"center"}> 

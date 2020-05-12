@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button, Modal, Label, Header, Input, Select,  } from 'semantic-ui-react'
+import { Form, Button, Modal, Header, Input, Select,  } from 'semantic-ui-react'
 import '../index.css'
 
 const options = [
@@ -29,6 +29,7 @@ export default function EditParkModal({ parkToEdit, updatePark, closeModal }) {
         <Form.Field
           onSubmit={handleSubmit}
           control={Input}
+          value={park.name}
           label='Name'
           name='name'
           placeholder="Enter Park Name: "
@@ -37,6 +38,7 @@ export default function EditParkModal({ parkToEdit, updatePark, closeModal }) {
         <Form.Field
           onSubmit={handleSubmit}
           control={Input}
+          value={park.location}
           label='Location'
           name='location'
           placeholder="Enter Park Location: "
@@ -81,6 +83,7 @@ export default function EditParkModal({ parkToEdit, updatePark, closeModal }) {
         <Form.Field
           onSubmit={handleSubmit}
           control={Input}
+          value={park.image}
           label='Image'
           name='image'
           placeholder="Paste Park's image URL here: "
