@@ -8,6 +8,12 @@ export default function ParkShow({ parkToShow, closeParkModal }) {
   return(
     <Modal open={true} closeIcon={true} onClose={closeParkModal}>
       <Header>{park.name}</Header>
+      <Modal.Content>
+        <Image
+          src={park.image}
+        />
+      </Modal.Content>
+
     </Modal>
 
   )

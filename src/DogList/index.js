@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Image } from 'semantic-ui-react'
+import { Card, Button, Image, Header } from 'semantic-ui-react'
 import '../App.css'
 
 export default function DogList(props) {
@@ -10,15 +10,15 @@ export default function DogList(props) {
         key={dog.id} 
         color={"black"}
       >
-        <Card.Content textAlign={"center"}>        
+        <Card.Content textAlign={"center"}>
+        <Header>
+          {dog.name}
+        </Header>        
           <Image 
             src={dog.image}
             size='medium'
             floated='left'
           />
-            <Card.Header>
-              {dog.name}
-            </Card.Header>
             <Card.Meta>
               {dog.breed}
             </Card.Meta>

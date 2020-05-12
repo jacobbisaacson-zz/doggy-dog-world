@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Image } from 'semantic-ui-react'
+import { Card, Button, Image, Header } from 'semantic-ui-react'
 import '../App.css'
 
 export default function ParkList(props) {
@@ -9,20 +9,16 @@ export default function ParkList(props) {
       <Card 
         key={park.id} 
         color={"black"}
-        // link
-        // onClick={props.showPark.park.id}
       >
-        <Card.Content 
-          textAlign={"center"}
-        >
+        <Card.Content textAlign={"center"}>
+        <Header>
+          {park.name}
+        </Header>
           <Image 
             src={park.image}
             size='medium'
             floated='left'
           />
-            <Card.Header>
-              {park.name}
-            </Card.Header>
             <Card.Meta>
               Location: {park.location}
             </Card.Meta>
