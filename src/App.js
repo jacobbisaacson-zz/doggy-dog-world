@@ -6,46 +6,13 @@ import ProfileContainer from './ProfileContainer'
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 import Header from './Header'
+// import { Message } from 'semantic-ui-react'
 // import Flash from './Flash'
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
-
-
-
-  // const UserGreeting = async () => {
-  //   try {
-  //     const message = await return <h1>Welcome back!</h1> 
-  //   } 
-  //   catch(err) {
-  //     console.error(err)
-  //   }
-  // }
-
-  // const GuestGreeting = async () => {
-  //   return <h1>Please sign up.</h1>
-  // }
-
-  // const Greeting = async () => {
-  //     if (loggedIn) {
-  //       return <UserGreeting />
-  //     }
-  //   return <GuestGreeting />
-  // }
-
-  // const [open, setOpen] = useState(false)
-
-  // const profileFill = async (user) => {
-  //   const moreInfo = ['name', 'clean_pref', 'fenced_pref', 'busy_pref', 'big_pref', 'note']
-  //   for(let [key, value] of Object.entries(user)) {
-  //     if(moreInfo.includes(key)) {
-  //       if(value === '' || value === null) {
-  //       setOpen(true)
-  //       }
-  //     }
-  //   }
-  // }
+  // const [message, setMessage] = useState('')
 
   const register = async (registerInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/users/register"
@@ -123,8 +90,9 @@ export default function App() {
         ?
         <React.Fragment>
           <Header 
-            username={loggedInUserUsername} 
-            logout={logout} />
+            username={loggedInUserUsername}
+            logout={logout}
+          />
           <ProfileContainer />
         </React.Fragment>
         :
@@ -142,3 +110,44 @@ export default function App() {
 
 }
 
+
+
+
+
+
+
+
+
+
+  // const UserGreeting = async () => {
+  //   try {
+  //     const message = await return <h1>Welcome back!</h1> 
+  //   } 
+  //   catch(err) {
+  //     console.error(err)
+  //   }
+  // }
+
+  // const GuestGreeting = async () => {
+  //   return <h1>Please sign up.</h1>
+  // }
+
+  // const Greeting = async () => {
+  //     if (loggedIn) {
+  //       return <UserGreeting />
+  //     }
+  //   return <GuestGreeting />
+  // }
+
+  // const [open, setOpen] = useState(false)
+
+  // const profileFill = async (user) => {
+  //   const moreInfo = ['name', 'clean_pref', 'fenced_pref', 'busy_pref', 'big_pref', 'note']
+  //   for(let [key, value] of Object.entries(user)) {
+  //     if(moreInfo.includes(key)) {
+  //       if(value === '' || value === null) {
+  //       setOpen(true)
+  //       }
+  //     }
+  //   }
+  // }

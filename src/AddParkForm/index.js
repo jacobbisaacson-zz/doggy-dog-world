@@ -6,7 +6,7 @@ import '../index.css'
 const options = [
     { key: 'v', text: 'Very', value: 'very' },
     { key: 'k', text: 'Kinda', value: 'kinda' },
-    { key: 'm', text: 'Meh...', value: 'meh' },
+    { key: 'm', text: 'Meh...', value: 'meh...' },
 ]
 
 export default function NewParkForm({ createPark }) {
@@ -21,6 +21,8 @@ export default function NewParkForm({ createPark }) {
   })
 
   const handleChange = event => {
+    console.log(event.target.value);
+    console.log(event.target);
     setPark({
       ...park,
       [event.target.name]: event.target.value
@@ -29,8 +31,11 @@ export default function NewParkForm({ createPark }) {
 
   const handleSubmit = event => {
     event.preventDefault()
+    console.log(park);
     createPark(park)
   }
+
+  // const { value } = 
 
   return (
     <Segment>
@@ -106,4 +111,3 @@ export default function NewParkForm({ createPark }) {
 }
 
 
-// NEED TO GET LOCATION IN HERE!
