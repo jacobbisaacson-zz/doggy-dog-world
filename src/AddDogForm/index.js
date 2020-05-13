@@ -52,7 +52,7 @@ export default function AddDogForm({createDog}) {
           placeholder="Paste image URL here: "
           onChange={handleChange}
         />
-        <Button type="Submit">Create Dog</Button>
+        <Button type="Submit">Submit</Button>
       </Form>
     </Segment>
   )

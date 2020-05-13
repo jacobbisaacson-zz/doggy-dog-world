@@ -12,6 +12,41 @@ export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
 
+
+
+  // const UserGreeting = async () => {
+  //   try {
+  //     const message = await return <h1>Welcome back!</h1> 
+  //   } 
+  //   catch(err) {
+  //     console.error(err)
+  //   }
+  // }
+
+  // const GuestGreeting = async () => {
+  //   return <h1>Please sign up.</h1>
+  // }
+
+  // const Greeting = async () => {
+  //     if (loggedIn) {
+  //       return <UserGreeting />
+  //     }
+  //   return <GuestGreeting />
+  // }
+
+  // const [open, setOpen] = useState(false)
+
+  // const profileFill = async (user) => {
+  //   const moreInfo = ['name', 'clean_pref', 'fenced_pref', 'busy_pref', 'big_pref', 'note']
+  //   for(let [key, value] of Object.entries(user)) {
+  //     if(moreInfo.includes(key)) {
+  //       if(value === '' || value === null) {
+  //       setOpen(true)
+  //       }
+  //     }
+  //   }
+  // }
+
   const register = async (registerInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/users/register"
 

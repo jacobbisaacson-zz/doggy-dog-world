@@ -4,6 +4,8 @@ import AddUserForm from '../AddUserForm'
 // import UserList from '../UserList'
 // import edit user modal
 
+// maybe needs to get user_prefs instead of user... and ...user_prefs
+
 export default function UserProfile(props) {
   console.log("THIS IS THE USER'S PROFILE (props in USER PROFILE)", props);
   const [users, setUsers] = useState([])
@@ -21,7 +23,7 @@ export default function UserProfile(props) {
       const usersJson = await usersResponse.json()
       setUsers(usersJson.data)
     } catch(err) {
-      console.error("ERROR getting USERs DATA", err)
+      console.error("ERROR getting USER's DATA", err)
     }
   }
 
@@ -31,17 +33,17 @@ export default function UserProfile(props) {
       const createUserResponse = await fetch(url, {
         credentials: 'include',
         method: 'POST',
+        body: JSON.stringify(userToAdd),
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userToAdd)
+        }
       })
       const createUserJson = await createUserResponse.json()
       if(createUserResponse.status === 201) {
         setUsers([ ...users, createUserJson.data ])
       }
     } catch(err) {
-      console.error("error adding user", err)
+      console.error("Error adding USER!! -- in CREATE USER in UserProfile", err)
     }
   }
 

@@ -19,7 +19,7 @@ export default function ParkShow({ parkToShow, closeParkModal }) {
         />
         <Modal.Description>
           <Header>{park.name}'s Details:</Header>
-            <small>(as rated by user, on a scale from 1-3)</small>
+            <small>(user rated, on a scale from 1-3)</small>
             <p className='park-show-p'>Located at {park.location}</p>
             <p className='park-show-p'>How Clean?<br></br>{park.clean}</p>
             <p className='park-show-p'>How Big?<br></br>{park.big}</p>
