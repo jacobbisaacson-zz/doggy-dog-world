@@ -35,8 +35,6 @@ export default function NewParkForm({ createPark }) {
     createPark(park)
   }
 
-  // const { value } = 
-
   return (
     <Segment>
       <h4>Add New Park:</h4>

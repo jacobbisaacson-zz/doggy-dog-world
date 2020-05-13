@@ -11,8 +11,15 @@ export default function UserList(props) {
       >
         <Card.Content textAlign={"center"}>        
           <Card.Header>
-            {user.username}
+            name: {user.name}
           </Card.Header>
+          <Card.Description>
+          clean_pref: {user.clean_pref}
+          big_pref: {user.big_pref}
+          fenced_pref: {user.fenced_pref}
+          busy_pref: {user.busy_pref}
+          note: {user.note}
+          </Card.Description>
         </Card.Content>
           <Card.Content textAlign={"center"}> 
             <Button 
@@ -20,14 +27,14 @@ export default function UserList(props) {
               color='red'
               onClick={ () => props.deleteUser(user.id) }
             >
-              Delete {user.username}
+              Delete
             </Button>
             <Button 
               basic 
               color='green'
               onClick={ () => props.editUser(user.id) }
             >
-              Edit {user.username}
+              Edit
             </Button>
         </Card.Content>
       </Card>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import AddUserForm from '../AddUserForm'
 // import { useForm } from 'react-hook-form'
-// import UserList from '../UserList'
+import UserList from '../UserList'
 // import edit user modal
 
 // maybe needs to get user_prefs instead of user... and ...user_prefs
 
-export default function UserProfile(props) {
-  console.log("THIS IS THE USER'S PROFILE (props in USER PROFILE)", props);
+export default function UserProfile() {
+  // console.log("THIS IS THE USER'S PROFILE (props in USER PROFILE)", props);
   const [users, setUsers] = useState([])
   // const [idOfUserToEdit, setIdOfUserToEdit] = useState(-1)
   useEffect(() => {
@@ -53,13 +53,13 @@ export default function UserProfile(props) {
         <AddUserForm
           createUser={createUser}
         />
+        <UserList 
+          users={users}
+        />
     </React.Fragment>
   )
 }
 
-        // <UserList
-          // users={users}
-          
-        // />
+// edit or other crud in here?
 
 // in here conditinal logic for displaying either the new user form or the edit user modal
