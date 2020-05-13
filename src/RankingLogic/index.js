@@ -1,21 +1,24 @@
-const shouldRenderStars = stars > 0 && loggedIn && pet === 'dog' && beerPref === 'light'
-
-  return (  <div>    {shouldRenderStars && (      <div>        {''.repeat(stars)}      </div>    )}  </div>);
 
 
-// for opening profile fill modal when user logs in
 
 
-  const [open, setOpen] = useState(false)
+  // if the values (total combined of all the preferences) for the USER_PREFS
+// are within 1-3 or the PARK_PREFS
 
-  const profileFill = async (user) => {
-    const moreInfo = ['name', 'clean_pref', 'fenced_pref', 'busy_pref', 'big_pref', 'note']
-    for(let [key, value] of Object.entries(user)) {
-      if(moreInfo.includes(key)) {
-        if(value === '' || value === null) {
-        setOpen(true)
-        }
-      }
-    }
-  }
+//then make those park cards remnder GOLD
+
+// if the difference is 4-6 
+// then make those park cards render SILVER
+
+// if the difference is 7 or more
+// then make those park cards render BRONZE
+
+// OR GREEN YELLOW RED is probably better
+
+
+// get the total combined value of the current user's park preferences.
+
+// get same for each park (map through them)
+
+
 
