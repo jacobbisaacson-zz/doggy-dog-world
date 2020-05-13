@@ -3,12 +3,6 @@ import { Form, Button, Segment, Label} from 'semantic-ui-react'
 import '../index.css'
 // import '../styles.css'
 
-// const options = [
-//     { key: 'v', text: 'Very', value: 'very' },
-//     { key: 'k', text: 'Kinda', value: 'kinda' },
-//     { key: 'm', text: 'Meh...', value: 'meh...' },
-// ]
-
 export default class AddUserForm extends Component {
   constructor(props) {
     super(props)
@@ -56,6 +50,7 @@ export default class AddUserForm extends Component {
         onSubmit={this.handleSubmit} className="this-form">
           <Label>Name:</Label>
           <Form.Input
+            type='text'
             name='name'
             value={this.state.name}
             placeholder="What's your name, human?: "
@@ -163,6 +158,7 @@ export default class AddUserForm extends Component {
           />
           <Label>Anything Else?:</Label>
           <Form.Input
+            type='text'
             name='note'
             value={this.state.note}
             placeholder="Anything else you'd like to let us know?: "

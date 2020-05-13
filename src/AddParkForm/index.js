@@ -1,111 +1,184 @@
-import React, { useState } from 'react'
-import { Form, Button, Segment, Select, Input } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Form, Button, Segment, Label } from 'semantic-ui-react'
 import '../index.css'
 // import '../styles.css'
 
-const options = [
-    { key: 'v', text: 'Very', value: 'very' },
-    { key: 'k', text: 'Kinda', value: 'kinda' },
-    { key: 'm', text: 'Meh...', value: 'meh...' },
-]
+export default class NewParkForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      clean: '',
+      big: '',
+      fenced: '',
+      busy: '',
+      image: '',
+      location: ''
+    }
+  }
 
-export default function NewParkForm({ createPark }) {
-  const [park, setPark] = useState({
-    name: '',
-    clean: '',
-    big: '',
-    fenced: '',
-    busy: '',
-    image: '',
-    location: ''
-  })
-
-  const handleChange = event => {
+  handleChange = (event) => {
     console.log(event.target.value);
-    console.log(event.target);
-    setPark({
-      ...park,
+    console.log(event.target.name);
+
+    this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-  const handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault()
-    console.log(park);
-    createPark(park)
+    console.log(event.target.value);
+    console.log(event.target.name);
+
+    this.props.createPark(this.state)
+
+    this.setState({
+      name: '',
+      clean: '',
+      big: '',
+      fenced: '',
+      busy: '',
+      image: '',
+      location: ''
+    })
   }
 
-  return (
-    <Segment>
-      <h4>Add New Park:</h4>
-      <Form 
-        onSubmit={handleSubmit}
-        className="this-form"
-      >
-        <Form.Field
-          onSubmit={handleSubmit}
-          control={Input}
-          label='Name'
-          name='name'
-          placeholder="Enter Park Name: "
-          onChange={handleChange}
-        />
-        <Form.Field
-          onSubmit={handleSubmit}
-          control={Input}
-          label='Location'
-          name='location'
-          placeholder="Enter Park Location: "
-          onChange={handleChange}
-        />
-        <Form.Field
-          onSubmit={handleSubmit}
-          control={Select}
-          label='Clean'
-          name='clean'
-          options={options}
-          placeholder="Is this park CLEAN?: "
-          onChange={handleChange}
-        />
-        <Form.Field
-          onSubmit={handleSubmit}
-          control={Select}
-          label='Big'
-          name='big'
-          options={options}
-          placeholder="Is this park BIG?: "
-          onChange={handleChange}
-        />
-        <Form.Field
-          onSubmit={handleSubmit}
-          control={Select}
-          label='Fenced'
-          name='fenced'
-          options={options}
-          placeholder="Is this park FENCED?: "
-          onChange={handleChange}
-        />
-        <Form.Field
-          onSubmit={handleSubmit}
-          control={Select}
-          label='Busy'
-          name='busy'
-          options={options}
-          placeholder="Is this park BUSY?: "
-          onChange={handleChange}
-        />
-        <Form.Field
-          onSubmit={handleSubmit}
-          control={Input}
-          label='Image'
-          name='image'
-          placeholder="Paste Park's image URL here: "
-          onChange={handleChange}
-        />
-        <Form.Field control={Button}>Submit</Form.Field>
-      </Form>
-    </Segment>
-  )
+  render() {
+    return (
+      <Segment>
+        <h4>Add New Park:</h4>
+        <Form onSubmit={this.handleSubmit} className="this-form">
+          <Label>Name:</Label>
+          <Form.Input
+            type='text'
+            name='name'
+            value={this.state.name}
+            placeholder="Enter Park Name: "
+            onChange={this.handleChange}
+          />
+          <Label>Location:</Label>
+          <Form.Input
+            name='location'
+            value={this.state.location}
+            placeholder="Enter Park Location: "
+            onChange={this.handleChange}
+          />
+          <Label>Clean?:</Label>
+          <Form.Input
+            type='radio'
+            name='clean'
+            label='Very'
+            value='3'
+            checked={this.state.clean === '3'}
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            type='radio'
+            name='clean'
+            label='Kinda'
+            value='2'
+            checked={this.state.clean === '2'}
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            type='radio'
+            name='clean'
+            label='Meh...'
+            value='1'
+            checked={this.state.clean === '1'}
+            onChange={this.handleChange}
+          />
+          <Label>Big?:</Label>
+          <Form.Input
+            type='radio'
+            name='big'
+            label='Very'
+            value='3'
+            checked={this.state.big === '3'}
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            type='radio'
+            name='big'
+            label='Kinda'
+            value='2'
+            checked={this.state.big === '2'}
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            type='radio'
+            name='big'
+            label='Meh...'
+            value='1'
+            checked={this.state.big === '1'}
+            onChange={this.handleChange}
+          />
+          <Label>Fenced-In?:</Label>
+          <Form.Input
+            type='radio'
+            name='fenced'
+            label='Very'
+            value='3'
+            checked={this.state.fenced === '3'}
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            type='radio'
+            name='fenced'
+            label='Kinda'
+            value='2'
+            checked={this.state.fenced === '2'}
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            type='radio'
+            name='fenced'
+            label='Meh...'
+            value='1'
+            checked={this.state.fenced === '1'}
+            onChange={this.handleChange}
+          />
+          <Label>Fenced-In?:</Label>
+          <Form.Input
+            type="radio"
+            name='busy'
+            label='Very'
+            value='3'
+            checked={this.state.busy === '3'}
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            type="radio"
+            name='busy'
+            label='Kinda'
+            value='2'
+            checked={this.state.busy === '2'}
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            type="radio"
+            name='busy'
+            label='Meh...'
+            value='1'
+            checked={this.state.busy === '1'}
+            onChange={this.handleChange}
+          />
+          <Label>Image:</Label>
+          <Form.Input
+            type='text'
+            name='image'
+            value={this.state.image}
+            placeholder="Paste Image URL: "
+            onChange={this.handleChange}
+          />
+          <Button type="Submit">Submit</Button>
+        </Form>
+      </Segment>
+    )
+
+  }
+
 }
 
 
