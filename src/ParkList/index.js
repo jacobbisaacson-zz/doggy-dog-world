@@ -77,9 +77,9 @@ export default function ParkList(props) {
             <Card.Meta>
               Posted by: {park.owner.username}
             </Card.Meta>
-            <Card.Description>
+            <Card.Meta style={{ backgroundColor: cardColor, fontSize: 20, fontWeight: 'bold', padding: 10 }}>
               {park.name} is a {cardColor} light for you and your pup!
-            </Card.Description>
+            </Card.Meta>
           </Card.Content>
           <Card.Content 
             textAlign={"center"}
