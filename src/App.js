@@ -6,6 +6,7 @@ import Header from './Header'
 import ParkContainer from './ParkContainer'
 import DogProfile from './DogProfile'
 import UserProfile from './UserProfile'
+import MainContainer from './MainContainer'
 
 // import { useForm } from "react-hook-form";
 // import ProfileContainer from './ProfileContainer'
@@ -19,14 +20,9 @@ export default function App() {
   const [user, setUser] = useState(null)
   const [userPrefs, setUserPrefs] = useState(null)
 
-  useEffect(() => {
-    getUsers()
-  }, [])
-
   // const [message, setMessage] = useState('')
 
-  // GETTING USER PREFERENCES!!
-  const getUsers = async () => {
+  const getUserPrefs = async () => {
     try {
       const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/show"
       const usersResponse = await fetch(url, {
@@ -114,21 +110,10 @@ export default function App() {
       {
         loggedIn
         ?
-        <React.Fragment>
-          <Header 
-            username={loggedInUserUsername}
-            logout={logout}
-            // showParkContainer={showParkContainer}
-          />
-          <ParkContainer
-            userPrefs={userPrefs}
-          />
-          <DogProfile />
-          <UserProfile
-            userPrefs={userPrefs}
-            // getUsers={getUsers}
-          />
-        </React.Fragment>
+        <MainContainer
+          username={loggedInUserUsername}
+          logout={logout} 
+        />
         :
         <React.Fragment>
         <RegisterForm register={register}
