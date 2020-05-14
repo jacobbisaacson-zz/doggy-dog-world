@@ -23,8 +23,6 @@ export default function App() {
     getUsers()
   }, [])
 
-  console.log("USER PREFS IN APP.JS", userPrefs);
-  console.log("THIS IS USER IN APP.JS", user);
   // const [message, setMessage] = useState('')
 
   // GETTING USER PREFERENCES!!
@@ -128,6 +126,7 @@ export default function App() {
           <DogProfile />
           <UserProfile
             userPrefs={userPrefs}
+            getUsers={getUsers}
           />
         </React.Fragment>
         :
