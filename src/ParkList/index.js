@@ -34,7 +34,7 @@ export default function ParkList(props) {
   const theNumber = parkSum - userSum
   // console.log(theNumber);
   let cardColor = null
-  
+
   if(theNumber >= 0 && theNumber < 3) {
     cardColor = 'green'
   } else {
@@ -112,22 +112,6 @@ export default function ParkList(props) {
   )
 }
 
-
-    // const theParks = [
-    //   {
-    //     clean: '', 
-    //     big: '',
-    //     fenced: '',
-    //     busy: ''
-    //   }
-    // ]
-    // const pushTheParks = theParks.map(parkId => {
-    //   const container = {}
-
-    //   container[parkId] = props.parks
-    //   console.log("CONTAINER", container);
-    // })
-    // console.log("PUSHTHEPARKS", pushTheParks);
 
 
 

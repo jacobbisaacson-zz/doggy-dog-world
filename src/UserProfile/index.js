@@ -3,20 +3,11 @@ import AddUserForm from '../AddUserForm'
 import UserList from '../UserList'
 import EditUserModal from '../EditUserModal'
 
-// import { useForm } from 'react-hook-form'
-// maybe needs to get user_prefs instead of user... and ...user_prefs
+// need logic for rendering the modals vs the profiles / add forms
 
 export default function UserProfile(props) {
-  // console.log("THIS IS THE USER'S PROFILE (props in USER PROFILE)", props);
   const [users, setUsers] = useState([])
   const [idOfUserToEdit, setIdOfUserToEdit] = useState(-1)
-
-
-  // useEffect(() => {
-  //   getUsers()
-  // }, [])
-
-  // DBL CHECK EDIT AND DELETE (MIGHT NEED PROPS)
 
   const deleteUser = async (idOfUserToDelete) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/" + idOfUserToDelete
@@ -33,8 +24,6 @@ export default function UserProfile(props) {
       console.error(err);
     }
   }
-
-  // console.log("USERS IN UserProfile", users);
 
   const createUser = async (userToAdd) => {
     try {
@@ -111,6 +100,8 @@ export default function UserProfile(props) {
   )
 }
 
-// edit or other crud in here?
 
-// in here conditinal logic for displaying either the new user form or the edit user modal
+
+
+
+
