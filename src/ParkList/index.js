@@ -13,8 +13,7 @@ export default function ParkList(props) {
     const pushToUserArrBig = userArr.push(props.userPrefs[0].big_pref)
     const pushToUserArrFenced = userArr.push(props.userPrefs[0].fenced_pref)
     const pushToUserArrBusy = userArr.push(props.userPrefs[0].busy_pref)
-
-    console.log("userArr", userArr);
+    // console.log("userArr", userArr);
   }
 
   const parks = props.parks.map(park => {
@@ -24,28 +23,18 @@ export default function ParkList(props) {
   const pushToParkArrBig = parkArr.push(park.big)
   const pushToParkArrFenced = parkArr.push(park.fenced)
   const pushToParkArrBusy = parkArr.push(park.busy)
-
-  console.log("parkArr", parkArr);
-  
-  // will get the sum of the arrays
+  // console.log("parkArr", parkArr);
   const reducer = (accumulator, currentValue) => accumulator + currentValue
   // console.log("user score sum", userArr.reduce(reducer));
-  console.log("park score sum", parkArr.reduce(reducer));
-
-  // just gettin the individual sums, 
-  // then the difference between the 2 
-
+  // console.log("park score sum", parkArr.reduce(reducer));
   const parkSum = parkArr.reduce(reducer, 0)
-  console.log("parkSum", parkSum);
-
+  // console.log("parkSum", parkSum);
   const userSum = userArr.reduce(reducer, 0)
-  console.log("userSum", userSum);
-
+  // console.log("userSum", userSum);
   const theNumber = parkSum - userSum
-  console.log(theNumber);
-
+  // console.log(theNumber);
   let cardColor = null
-
+  
   if(theNumber >= 0 && theNumber < 3) {
     cardColor = 'green'
   } else {
