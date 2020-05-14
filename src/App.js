@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-// import { useForm } from "react-hook-form";
-// import ProfileContainer from './ProfileContainer'
-// import LoginRegisterForm from './LoginRegisterForm'
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 import Header from './Header'
 import ParkContainer from './ParkContainer'
 import DogProfile from './DogProfile'
 import UserProfile from './UserProfile'
+
+// import { useForm } from "react-hook-form";
+// import ProfileContainer from './ProfileContainer'
+// import LoginRegisterForm from './LoginRegisterForm'
 // import { Message } from 'semantic-ui-react'
 // import Flash from './Flash'
 
@@ -16,8 +17,29 @@ export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
   const [user, setUser] = useState(null)
+  const [userPrefs, setUserPrefs] = useState(null)
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+  console.log("USER PREFS IN APP.JS", userPrefs);
   console.log("THIS IS USER IN APP.JS", user);
   // const [message, setMessage] = useState('')
+
+  // GETTING USER PREFERENCES!!
+  const getUsers = async () => {
+    try {
+      const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/show"
+      const usersResponse = await fetch(url, {
+        credentials: 'include'
+      })
+      const usersJson = await usersResponse.json()
+      setUserPrefs(usersJson.data)
+    } catch(err) {
+      console.error("ERROR getting USER's PREFS DATA", err)
+    }
+  }
 
   const register = async (registerInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/users/register"
@@ -100,9 +122,13 @@ export default function App() {
             logout={logout}
             // showParkContainer={showParkContainer}
           />
-          <ParkContainer />
+          <ParkContainer
+            userPrefs={userPrefs}
+          />
           <DogProfile />
-          <UserProfile />
+          <UserProfile
+            userPrefs={userPrefs}
+          />
         </React.Fragment>
         :
         <React.Fragment>

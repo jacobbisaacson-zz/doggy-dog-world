@@ -5,7 +5,7 @@ import EditParkModal from '../EditParkModal'
 import ParkShow from '../ParkShow'
 import Header from '../Header'
 
-export default function ParkContainer() {
+export default function ParkContainer(props) {
   const [parks, setParks] = useState([])
   const [idOfParkToEdit, setIdOfParkToEdit] = useState(-1)
   const [idOfParkToShow, setIdOfParkToShow] = useState(-1)
@@ -106,6 +106,7 @@ export default function ParkContainer() {
         deletePark={deletePark}
         editPark={editPark}
         showPark={showPark}
+        userPrefs={props.userPrefs}
       />
       <AddParkForm
         createPark={createPark} 

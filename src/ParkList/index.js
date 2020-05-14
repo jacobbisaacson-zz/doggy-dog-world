@@ -3,29 +3,32 @@ import { Card, Button, Image, Header } from 'semantic-ui-react'
 import '../App.css'
 
 export default function ParkList(props) {
+
   console.log("THIS IS THE USER'S PARK LIST (props in ParkList)", props);
+  console.log("USER PREFS IN PARK LIST", props.userPrefs);
+  
+  const userArr = [];
+  const pushToUserArrClean = userArr.push(props.userPrefs[0].clean_pref)
+  const pushToUserArrBig = userArr.push(props.userPrefs[0].big_pref)
+  const pushToUserArrFenced = userArr.push(props.userPrefs[0].fenced_pref)
+  const pushToUserArrBusy = userArr.push(props.userPrefs[0].busy_pref)
+
+  console.log("userArr", userArr);
+
   const parks = props.parks.map(park => {
 
   const parkArr = [];
-  // const userArr = [];
-
-  
   const pushToParkArrClean = parkArr.push(park.clean)
   const pushToParkArrBig = parkArr.push(park.big)
   const pushToParkArrFenced = parkArr.push(park.fenced)
   const pushToParkArrBusy = parkArr.push(park.busy)
 
-  // const pushToUserArrClean = userArr.push(props.user.clean_pref)
-  // const pushToUserArrBig = userArr.push(props.user.big_pref)
-  // const pushToUserArrFenced = userArr.push(props.user.fenced_pref)
-  // const pushToUserArrBusy = userArr.push(props.user.busy_pref)
-
   console.log("parkArr", parkArr);
-  // console.log("userArr", userArr);
+  
 
   // will get the sum of the arrays
   const reducer = (accumulator, currentValue) => accumulator + currentValue
-  // console.log("user score sum", userArr.reduce(reducer));
+  console.log("user score sum", userArr.reduce(reducer));
   console.log("park score sum", parkArr.reduce(reducer));
 
   // just gettin the individual sums, 
@@ -33,32 +36,30 @@ export default function ParkList(props) {
 
   const parkSum = parkArr.reduce(reducer, 0)
   console.log("parkSum", parkSum);
-  
-  // const userSum = userArr.reduce(reducer, 0)
-  // console.log("userSum", userSum);
 
-  // const theNumber = parkSum - userSum
+  const userSum = userArr.reduce(reducer, 0)
+  console.log("userSum", userSum);
 
-  // console.log(theNumber);
+  const theNumber = parkSum - userSum
+  console.log(theNumber);
 
-  // logic to render the cards (in the ParkList) a certain color
 
-  // setPrefColor hook, bring in props
-  // should be able to set pref color for each park
+  let cardColor = null
 
-  // if(theNumber > 0 && theNumber < 3) {
-  //   console.log("Green");
-  // } else {
-  //   if(theNumber > 3 && theNumber < 7) {
-  //     console.log("Yellow");
-  //   } else {
-  //     console.log("Red");
-  //   }
-  // }
+  if(theNumber >= 0 && theNumber < 3) {
+    cardColor = 'green'
+  } else {
+    if(theNumber > 3 && theNumber < 7) {
+      cardColor = 'yellow'
+    } else {
+      cardColor = 'red'
+    }
+  }
+
     return(
       <Card 
         key={park.id} 
-        color={"pink"}
+        color={cardColor}
       >
         <Card.Content textAlign={"center"}>
         <Header>
