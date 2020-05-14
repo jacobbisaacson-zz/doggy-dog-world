@@ -7,9 +7,7 @@ export default function LoginForm(props) {
 
   const onSubmit = data => {
     props.login(data)
-    // console.log("username and password data:", JSON.stringify(data));
   };
-  // console.log("errors with username / password", errors);
 
   return (
     <React.Fragment>
@@ -48,11 +46,6 @@ export default function LoginForm(props) {
     </React.Fragment>
   );
 }
-
-
-
-
-
 
 
 

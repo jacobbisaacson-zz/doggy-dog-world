@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Segment, Label } from 'semantic-ui-react'
 import '../index.css'
-// import '../styles.css'
 
 export default class NewParkForm extends Component {
   constructor(props) {

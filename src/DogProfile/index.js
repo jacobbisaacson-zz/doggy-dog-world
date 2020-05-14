@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-// import { Form, Button, Label, Segment } from 'semantic-ui-react'
 import AddDogForm from '../AddDogForm'
 import DogList from '../DogList'
 import EditDogModal from '../EditDogModal'
+// import { Form, Button, Label, Segment } from 'semantic-ui-react'
 
 export default function DogProfile() {
   const [dogs, setDogs] = useState([])

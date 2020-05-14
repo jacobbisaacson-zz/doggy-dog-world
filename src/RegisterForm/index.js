@@ -4,14 +4,8 @@ import "../styles.css";
 
 export default function RegisterForm(props) {
   const { register, errors, handleSubmit } = useForm();
-  const onSubmit = data => {
-    props.register(data)
-    // alert("Congrats on registering for Doggy Dog World!");
-    // console.log("username and password data:", JSON.stringify(data));
-  };
-  // console.log("errors with username / password", errors);
-  // if error logging in because of validation stuff, show alert saying so
-  // if works, show alert saying congrats!
+  const onSubmit = data => { props.register(data) };
+  
   return (
     <React.Fragment>
       <h1 className="h1-register-form">It's a Doggy Dog World</h1>
