@@ -101,6 +101,9 @@ export default function ParkContainer(props) {
   return(
     <React.Fragment>
       <h2>Find a Dog Park!</h2>
+      {
+      props.userPrefs.length > 0
+      ?
       <ParkList
         parks={parks} 
         deletePark={deletePark}
@@ -108,6 +111,9 @@ export default function ParkContainer(props) {
         showPark={showPark}
         userPrefs={props.userPrefs}
       />
+      :
+      <small>Create some preferences to continue</small>
+      }
       <AddParkForm
         createPark={createPark} 
       />

@@ -126,7 +126,7 @@ export default function App() {
           <DogProfile />
           <UserProfile
             userPrefs={userPrefs}
-            getUsers={getUsers}
+            // getUsers={getUsers}
           />
         </React.Fragment>
         :
