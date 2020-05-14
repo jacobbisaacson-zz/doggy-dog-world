@@ -7,13 +7,15 @@ export default function ParkList(props) {
   console.log("THIS IS THE USER'S PARK LIST (props in ParkList)", props);
   console.log("USER PREFS IN PARK LIST", props.userPrefs);
   
-  const userArr = [];
-  const pushToUserArrClean = userArr.push(props.userPrefs[0].clean_pref)
-  const pushToUserArrBig = userArr.push(props.userPrefs[0].big_pref)
-  const pushToUserArrFenced = userArr.push(props.userPrefs[0].fenced_pref)
-  const pushToUserArrBusy = userArr.push(props.userPrefs[0].busy_pref)
+    const userArr = [];
+      if(props.userPrefs[0]) {
+    const pushToUserArrClean = userArr.push(props.userPrefs[0].clean_pref)
+    const pushToUserArrBig = userArr.push(props.userPrefs[0].big_pref)
+    const pushToUserArrFenced = userArr.push(props.userPrefs[0].fenced_pref)
+    const pushToUserArrBusy = userArr.push(props.userPrefs[0].busy_pref)
 
-  console.log("userArr", userArr);
+    console.log("userArr", userArr);
+  }
 
   const parks = props.parks.map(park => {
 
@@ -25,10 +27,9 @@ export default function ParkList(props) {
 
   console.log("parkArr", parkArr);
   
-
   // will get the sum of the arrays
   const reducer = (accumulator, currentValue) => accumulator + currentValue
-  console.log("user score sum", userArr.reduce(reducer));
+  // console.log("user score sum", userArr.reduce(reducer));
   console.log("park score sum", parkArr.reduce(reducer));
 
   // just gettin the individual sums, 
@@ -43,7 +44,6 @@ export default function ParkList(props) {
   const theNumber = parkSum - userSum
   console.log(theNumber);
 
-
   let cardColor = null
 
   if(theNumber >= 0 && theNumber < 3) {
@@ -57,7 +57,8 @@ export default function ParkList(props) {
   }
 
     return(
-      <Card 
+      <Card
+        fluid
         key={park.id} 
         color={cardColor}
       >
@@ -76,6 +77,9 @@ export default function ParkList(props) {
             <Card.Meta>
               Posted by: {park.owner.username}
             </Card.Meta>
+            <Card.Description>
+              {park.name} is a {cardColor} light for you and your pup!
+            </Card.Description>
           </Card.Content>
           <Card.Content 
             textAlign={"center"}
