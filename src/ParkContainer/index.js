@@ -100,7 +100,6 @@ export default function ParkContainer() {
 
   return(
     <React.Fragment>
-    <Header />
       <h2>Find a Dog Park!</h2>
       <ParkList
         parks={parks} 
