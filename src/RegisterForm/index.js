@@ -7,9 +7,9 @@ export default function RegisterForm(props) {
   const onSubmit = data => {
     props.register(data)
     // alert("Congrats on registering for Doggy Dog World!");
-    console.log("username and password data:", JSON.stringify(data));
+    // console.log("username and password data:", JSON.stringify(data));
   };
-  console.log("errors with username / password", errors);
+  // console.log("errors with username / password", errors);
   // if error logging in because of validation stuff, show alert saying so
   // if works, show alert saying congrats!
   return (

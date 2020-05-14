@@ -33,6 +33,10 @@ body {
   border: 2px solid navy;
 }
 
+.two-columns {
+  columns: 2;
+}
+
 /*.radio-stuff {
   width: 100%;
   padding: 10px;

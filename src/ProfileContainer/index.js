@@ -7,7 +7,6 @@ export default function ProfileContainer() {
 
   return(
     <React.Fragment>
-      <ParkContainer />
       <DogProfile />
       <UserProfile />
     </React.Fragment>

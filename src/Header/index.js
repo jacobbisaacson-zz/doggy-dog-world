@@ -4,7 +4,7 @@ import '../index.css'
 import ParkContainer from '../ParkContainer'
 
 
-export default class OtherHeader extends Component {
+export default class MainHeader extends Component {
   constructor(props) {
     super(props)
     this.state = {

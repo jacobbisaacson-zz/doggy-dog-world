@@ -28,7 +28,7 @@ export default class AddUserForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    console.log(event.target.value); // undefined
+    console.log(event.target.value);
     console.log(event.target.name);
 
     this.props.createUser(this.state)
@@ -46,8 +46,7 @@ export default class AddUserForm extends Component {
   render() {
     return (
       <Segment>
-      <Form 
-        onSubmit={this.handleSubmit} className="this-form">
+      <Form onSubmit={this.handleSubmit} className="this-form">
           <Label>Name:</Label>
           <Form.Input
             type='text'
@@ -56,6 +55,7 @@ export default class AddUserForm extends Component {
             placeholder="What's your name, human?: "
             onChange={this.handleChange}
           />
+          <div className="two-columns">
           <Label>How important is a clean dog park to you?:</Label>
           <Form.Input
             type="radio"
@@ -156,6 +156,7 @@ export default class AddUserForm extends Component {
             checked={this.state.busy_pref === '1'}
             onChange={this.handleChange}
           />
+          </div>
           <Label>Anything Else?:</Label>
           <Form.Input
             type='text'

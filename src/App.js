@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
 // import { useForm } from "react-hook-form";
-import ProfileContainer from './ProfileContainer'
+// import ProfileContainer from './ProfileContainer'
 // import LoginRegisterForm from './LoginRegisterForm'
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 import Header from './Header'
+import ParkContainer from './ParkContainer'
+import DogProfile from './DogProfile'
+import UserProfile from './UserProfile'
 // import { Message } from 'semantic-ui-react'
 // import Flash from './Flash'
 
@@ -95,8 +98,11 @@ export default function App() {
           <Header 
             username={loggedInUserUsername}
             logout={logout}
+            // showParkContainer={showParkContainer}
           />
-          <ProfileContainer />
+          <ParkContainer />
+          <DogProfile />
+          <UserProfile />
         </React.Fragment>
         :
         <React.Fragment>

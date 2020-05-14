@@ -3,7 +3,7 @@ import { Card, Button, Image, Header } from 'semantic-ui-react'
 import '../App.css'
 
 export default function DogList(props) {
-  console.log("THIS IS THE USER'S DOG LIST (props in DogList)", props);
+  // console.log("THIS IS THE USER'S DOG LIST (props in DogList)", props);
   const dogs = props.dogs.map(dog => {
     return(
       <Card 

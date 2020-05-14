@@ -39,7 +39,6 @@ export default function DogProfile() {
       console.error("Error deleting dog:");
       console.error(err);
     }
-
   }
 
   const createDog = async (dogToAdd) => {
@@ -95,7 +94,7 @@ export default function DogProfile() {
   
   return(
     <React.Fragment>
-      <h3>Dog List!</h3>
+      <h3>Your Dogs!</h3>
         <DogList 
           dogs={dogs}
           deleteDog={deleteDog}
