@@ -27,6 +27,8 @@ export default function UserProfile() {
     }
   }
 
+  console.log("USERS IN USERPROFIUKE", users);
+
   const createUser = async (userToAdd) => {
     try {
       const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/"

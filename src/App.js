@@ -12,6 +12,8 @@ import Header from './Header'
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
+  const [user, setUser] = useState(null)
+  console.log("THIS IS USER IN APP.JS", user);
   // const [message, setMessage] = useState('')
 
   const register = async (registerInfo) => {
@@ -56,6 +58,7 @@ export default function App() {
       if(loginResponse.status === 200) {
         setLoggedIn(true)
         setLoggedInUserUsername(loginJson.data.username)
+        setUser(loginJson.data)
       }
 
     } catch(error) {

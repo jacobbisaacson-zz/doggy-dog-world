@@ -95,7 +95,7 @@ export default function DogProfile() {
   
   return(
     <React.Fragment>
-      <h3>Awwww!!!</h3>
+      <h3>Dog List!</h3>
         <DogList 
           dogs={dogs}
           deleteDog={deleteDog}

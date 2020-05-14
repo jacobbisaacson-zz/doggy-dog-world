@@ -140,3 +140,39 @@ Each presentation should be **10 minutes or less** and cover the following:
 ###### What should I prepare for the showcase?
 
 You should have your app ready to demo on your computer, and a quick (2-3 minute) explanation of what your project is and what's interesting about it.
+
+
+
+
+
+  // const parkArr = [];
+  // const userArr = [2, 3, 3, 3];
+
+  // const pushToParkArr = parkArr.push(props.parks)
+  // console.log("parkArr", parkArr);
+
+  // // will get the sum of the arrays
+  // const reducer = (accumulator, currentValue) => accumulator + currentValue
+  // // console.log("user score sum", userArr.reduce(reducer));
+  // console.log("park score sum", parkArr.reduce(reducer));
+
+  // // just gettin the individual sums, 
+  // // then the difference between the 2 
+  // const parkSum = parkArr.reduce(reducer, 0)
+  // console.log("parkSum", parkSum);
+  // const userSum = userArr.reduce(reducer, 0)
+
+  // const theNumber = parkSum - userSum
+
+  // // console.log(theNumber);
+
+  // // logic to render the cards (in the ParkList) a certain color
+  // if(theNumber > 0 && theNumber < 3) {
+  //   console.log("Green");
+  // } else {
+  //   if(theNumber > 3 && theNumber < 7) {
+  //     console.log("Yellow");
+  //   } else {
+  //     console.log("Red");
+  //   }
+  // }

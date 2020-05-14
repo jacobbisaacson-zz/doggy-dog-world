@@ -9,16 +9,16 @@ export default function UserList(props) {
         key={user.id} 
         color={"blue"}
       >
-        <Card.Content textAlign={"center"}>        
+        <Card.Content textAlign={"center"}>
           <Card.Header>
             name: {user.name}
           </Card.Header>
           <Card.Description>
-          clean_pref: {user.clean_pref}
-          big_pref: {user.big_pref}
-          fenced_pref: {user.fenced_pref}
-          busy_pref: {user.busy_pref}
-          note: {user.note}
+            clean_pref: {user.clean_pref}
+            big_pref: {user.big_pref}
+            fenced_pref: {user.fenced_pref}
+            busy_pref: {user.busy_pref}
+            note: {user.note}
           </Card.Description>
         </Card.Content>
           <Card.Content textAlign={"center"}> 

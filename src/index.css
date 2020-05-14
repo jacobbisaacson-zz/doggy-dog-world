@@ -19,12 +19,12 @@ body {
   display: flex;
 }
 
-.add-park-form {
+/*.add-park-form {
   margin: 0 auto;
   width: 95%;
   padding: 10px;
   border: 1px solid black;
-}
+}*/
 
 .this-form {
   margin: 0 auto;
@@ -32,6 +32,13 @@ body {
   padding: 10px;
   border: 2px solid navy;
 }
+
+/*.radio-stuff {
+  width: 100%;
+  padding: 10px;
+  columns: 2;
+  margin: 0 auto;
+}*/
 
 .park-show-p {
   margin: 0 auto;
