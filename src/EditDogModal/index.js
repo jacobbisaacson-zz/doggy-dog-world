@@ -13,10 +13,11 @@ export default function EditDogModal({dogToEdit, updateDog, closeModal}) {
   return(
     <Modal open={true} closeIcon={true} onClose={closeModal}> 
       <Header>
-        <h3>Enter new info</h3>
+        <h3>Edit This Dog</h3>
       </Header>
       <Modal.Content>
         <Form onSubmit={handleSubmit}>
+          <Label>Name:</Label>
           <Form.Input 
             type="text"
             name="name"

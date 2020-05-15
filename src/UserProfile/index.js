@@ -26,32 +26,6 @@ export default function UserProfile(props) {
   }
 
   const editUser = (idOfUserToEdit) => setIdOfUserToEdit(idOfUserToEdit)
-
-  const updateUser = async (updatedUserInfo) => {
-    const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/" + idOfUserToEdit
-    try {
-      const updateUserResponse = await fetch(url, {
-        credentials: 'include',
-        method: 'PUT',
-        body: JSON.stringify(updatedUserInfo), 
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      const updateUserJson = await updateUserResponse.json()
-
-      if(updateUserResponse.status === 200) {
-        const indexOfUserBeingUpdated = users.findIndex(user => user.id === idOfUserToEdit)
-        users[indexOfUserBeingUpdated] = updateUserJson.data
-        setUsers(users)
-        setIdOfUserToEdit(-1)
-      }
-
-    } catch(err) {
-      console.error("Error updating User Pref info")
-      console.error(err)
-    }
-  }
   
   const closeModal = () => setIdOfUserToEdit(-1)
 
@@ -68,8 +42,8 @@ export default function UserProfile(props) {
           &&
           <EditUserModal
             key={idOfUserToEdit}
-            userToEdit={users.find((user) => user.id === idOfUserToEdit)}
-            updateUser={updateUser}
+            userToEdit={props.userPrefs}
+            updateUser={props.updateUser}
             closeModal={closeModal}
           />
         }

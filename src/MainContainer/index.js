@@ -30,6 +30,29 @@ export default function MainContainer(props) {
     }
   }
 
+  const updateUser = async (updatedUserInfo) => {
+    const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/"
+    try {
+      const updateUserResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'PUT',
+        body: JSON.stringify(updatedUserInfo), 
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const updateUserJson = await updateUserResponse.json()
+
+      if(updateUserResponse.status === 200) {
+        setUserPrefs(updateUserJson.data)
+      }
+
+    } catch(err) {
+      console.error("Error updating User Pref info")
+      console.error(err)
+    }
+  }
+
   const createUserPrefs = async (userToAdd) => {
     try {
       const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/"
@@ -64,7 +87,9 @@ export default function MainContainer(props) {
             <DogProfile />
             <UserProfile  
               userPrefs={prefs}
-              createUserPrefs={createUserPrefs} />
+              createUserPrefs={createUserPrefs}
+              updateUser={updateUser} 
+            />
           </React.Fragment>
         )
       }
