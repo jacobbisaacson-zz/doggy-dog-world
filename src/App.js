@@ -14,23 +14,6 @@ export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
   const [user, setUser] = useState(null)
-  
-  // const [userPrefs, setUserPrefs] = useState(null)
-
-  // const [message, setMessage] = useState('')
-
-  // const getUserPrefs = async () => {
-  //   try {
-  //     const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/show"
-  //     const usersResponse = await fetch(url, {
-  //       credentials: 'include'
-  //     })
-  //     const usersJson = await usersResponse.json()
-  //     setUserPrefs(usersJson.data)
-  //   } catch(err) {
-  //     console.error("ERROR getting USER's PREFS DATA", err)
-  //   }
-  // }
 
   const register = async (registerInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/users/register"

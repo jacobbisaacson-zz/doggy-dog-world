@@ -59,7 +59,7 @@ export default function UserProfile(props) {
     <React.Fragment>
       <h3>User Profile</h3>
         <UserList 
-          users={[props.userPrefs]}
+          users={props.userPrefs}
           deleteUser={deleteUser}
           editUser={editUser}
         />

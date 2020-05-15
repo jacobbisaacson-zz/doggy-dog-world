@@ -4,6 +4,7 @@ import { Card, Button } from 'semantic-ui-react'
 export default function UserList(props) {
   console.log("THIS IS THE USER LIST (props in USERLIST)", props);
   const users = props.users.map(user => {
+    console.log(user);
     return(
       <Card 
         key={user.id} 

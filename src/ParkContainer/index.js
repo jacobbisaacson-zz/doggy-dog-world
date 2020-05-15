@@ -108,7 +108,7 @@ export default function ParkContainer(props) {
         deletePark={deletePark}
         editPark={editPark}
         showPark={showPark}
-        userPrefs={props.userPrefs}
+        userPrefs={[props.userPrefs]}
       />
       :
       <small>Create some preferences to continue</small>

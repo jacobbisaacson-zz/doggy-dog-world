@@ -7,8 +7,9 @@ export default function ParkList(props) {
   console.log("THIS IS THE USER'S PARK LIST (props in ParkList)", props);
   console.log("USER PREFS IN PARK LIST", props.userPrefs);
   
-    const userArr = [];
-      if(props.userPrefs[0]) {
+  const userArr = [];
+
+  if(props.userPrefs[0]) {
     const pushToUserArrClean = userArr.push(props.userPrefs[0].clean_pref)
     const pushToUserArrBig = userArr.push(props.userPrefs[0].big_pref)
     const pushToUserArrFenced = userArr.push(props.userPrefs[0].fenced_pref)
@@ -18,35 +19,36 @@ export default function ParkList(props) {
   const parks = props.parks.map(park => {
 
   const parkArr = [];
-  const pushToParkArrClean = parkArr.push(park.clean)
-  const pushToParkArrBig = parkArr.push(park.big)
-  const pushToParkArrFenced = parkArr.push(park.fenced)
-  const pushToParkArrBusy = parkArr.push(park.busy)
 
-  const reducer = (accumulator, currentValue) => accumulator + currentValue
-  console.log("user score sum", userArr.reduce(reducer));
-  console.log("park score sum", parkArr.reduce(reducer));
+    const pushToParkArrClean = parkArr.push(park.clean)
+    const pushToParkArrBig = parkArr.push(park.big)
+    const pushToParkArrFenced = parkArr.push(park.fenced)
+    const pushToParkArrBusy = parkArr.push(park.busy)
 
-  const parkSum = parkArr.reduce(reducer, 0)
-  console.log("parkSum", parkSum);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue
+    console.log("user score sum", userArr.reduce(reducer));
+    console.log("park score sum", parkArr.reduce(reducer));
 
-  const userSum = userArr.reduce(reducer, 0)
-  console.log("userSum", userSum);
+    const parkSum = parkArr.reduce(reducer, 0)
+    console.log("parkSum", parkSum);
 
-  const theNumber = parkSum - userSum
-  console.log(theNumber);
+    const userSum = userArr.reduce(reducer, 0)
+    console.log("userSum", userSum);
 
-  let cardColor = null
+    const theNumber = parkSum - userSum
+    console.log(theNumber);
 
-  if(theNumber >= 0 && theNumber < 3) {
-    cardColor = 'green'
-  } else {
-    if(theNumber > 3 && theNumber < 7) {
-      cardColor = 'yellow'
+    let cardColor = null
+
+    if(theNumber >= 0 && theNumber < 3) {
+      cardColor = 'green'
     } else {
-      cardColor = 'red'
+      if(theNumber > 3 && theNumber < 7) {
+        cardColor = 'yellow'
+      } else {
+        cardColor = 'red'
+      }
     }
-  }
 
     return(
       <Card
@@ -102,13 +104,11 @@ export default function ParkList(props) {
         </Card.Content>
       </Card>     
     )
-  })
+  }) // end of map
 
   return (
     <React.Fragment>
-      <Card.Group 
-        centered={true}
-      >
+      <Card.Group centered={true} >
         {parks}
       </Card.Group>
     </React.Fragment>
