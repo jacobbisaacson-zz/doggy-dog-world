@@ -42,7 +42,7 @@ export default function MainContainer(props) {
       const createUserPrefsJson = await createUserPrefsResponse.json()
       console.log("create user prefs json", createUserPrefsJson);
       if(createUserPrefsResponse.status === 201) {
-        setUsers([ ...users, createUserPrefsJson.data ])
+        setUserPrefs(createUserPrefsJson.data)
       }
     } catch(err) {
       console.error("Error adding USER!! -- in CREATE USER in UserProfile", err)
