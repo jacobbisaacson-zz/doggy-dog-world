@@ -108,17 +108,6 @@ export default function MainContainer(props) {
 }
 
 
-// this.showTheThing("hello")
-
-    // if prefs is null return hello
-    // if prefs is an empty array render the add user form
-    // if its an array with something in it, render the other shit
-
-
-  // put back {card color} in the description of the light color
-  // add background color {card color} to the style
-  // TONS OF STUFF INT HE PARK CONTAINER NEEDS TO BE ADDED BACK -- last commit
-
 
 
 

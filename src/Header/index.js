@@ -17,7 +17,7 @@ export default class MainHeader extends Component {
       <Segment clearing style={{ height: 70, textAlign: 'center' }}>
         <Header as='h3'>
           <Image circular floated='right' src='https://i.imgur.com/6A5vim9.jpg?2'/>
-          <p>Logged in as: {this.username}.&nbsp;<span className="fake-link" onClick={this.props.logout}>(Log out)</span></p>
+          <p>Logged in as: {this.props.username}.&nbsp;<span className="fake-link" onClick={this.props.logout}>(Log out)</span></p>
         </Header>
       </Segment>
     )
