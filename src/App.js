@@ -33,7 +33,6 @@ export default function App() {
 
   const register = async (registerInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/users/register"
-
     try {
       const registerResponse = await fetch(url, {
         credentials: 'include',
@@ -44,6 +43,7 @@ export default function App() {
         }
       })
       const registerJson = await registerResponse.json()
+      console.log("register data", registerJson.data.username);
 
       if(registerResponse.status === 201) {
         setLoggedIn(true)
@@ -58,7 +58,6 @@ export default function App() {
 
   const login = async (loginInfo) => {
     const url = process.env.REACT_APP_API_URL + '/api/v1/users/login'
-
     try {
       const loginResponse = await fetch(url, {
         credentials: 'include',
@@ -108,13 +107,12 @@ export default function App() {
         ?
         <MainContainer
           username={loggedInUserUsername}
-          logout={logout} 
+          logout={logout}
         />
         :
         <React.Fragment>
-        <RegisterForm register={register}
-        />
-        <LoginForm login={login}/>
+          <RegisterForm register={register} />
+          <LoginForm login={login} />
         </React.Fragment>
       }
         <div className="footer-style">

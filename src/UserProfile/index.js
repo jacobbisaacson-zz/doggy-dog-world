@@ -25,26 +25,6 @@ export default function UserProfile(props) {
     }
   }
 
-  const createUser = async (userToAdd) => {
-    try {
-      const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/"
-      const createUserResponse = await fetch(url, {
-        credentials: 'include',
-        method: 'POST',
-        body: JSON.stringify(userToAdd),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      const createUserJson = await createUserResponse.json()
-      if(createUserResponse.status === 201) {
-        setUsers([ ...users, createUserJson.data ])
-      }
-    } catch(err) {
-      console.error("Error adding USER!! -- in CREATE USER in UserProfile", err)
-    }
-  }
-
   const editUser = (idOfUserToEdit) => setIdOfUserToEdit(idOfUserToEdit)
 
   const updateUser = async (updatedUserInfo) => {

@@ -1,37 +1,66 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Header from '../Header'
 import ParkContainer from '../ParkContainer'
 import DogProfile from '../DogProfile'
 import UserProfile from '../UserProfile'
 import AddUserForm from '../AddUserForm'
 
-export default class MainContainer extends Component {
-  constructor(props) {
-    super(props)
+export default function MainContainer(props) {
+  const [prefs, setPrefs] = useState(null)
+  const [users, setUsers] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
 
-    this.state = {
-      prefs: [1, 2]
+  const createUser = async (userToAdd) => {
+    try {
+      const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/"
+      const createUserResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(userToAdd),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const createUserJson = await createUserResponse.json()
+      if(createUserResponse.status === 201) {
+        setUsers([ ...users, createUserJson.data ])
+      }
+    } catch(err) {
+      console.error("Error adding USER!! -- in CREATE USER in UserProfile", err)
     }
   }
 
-  showTheThing = () => {
-    if (this.state.prefs === null) {
+  const showTheThing = () => {
+    if (prefs === null) {
       return "Loading"
     } else {
-      if(this.state.prefs.length === 0) {
+      if(prefs.length === 0) {
         return( <AddUserForm /> )
       } else {
         return(
           <React.Fragment>
-            <ParkContainer userPrefs={this.state.prefs} />
+            <ParkContainer userPrefs={prefs} />
             <DogProfile />
-            <UserProfile userPrefs={this.state.prefs} />
+            <UserProfile  
+              userPrefs={prefs}
+              createUser={createUser} />
           </React.Fragment>
         )
       }
     }
   }
 
+  return(
+    <React.Fragment>
+      <Header 
+        username={loggedInUserUsername}
+        logout={props.logout}
+      />
+      { showTheThing() }
+    </React.Fragment>
+  )
+}
 
 
 // this.showTheThing("hello")
@@ -45,18 +74,6 @@ export default class MainContainer extends Component {
   // add background color {card color} to the style
   // TONS OF STUFF INT HE PARK CONTAINER NEEDS TO BE ADDED BACK -- last commit
 
-  render() {
-    return(
-      <React.Fragment>
-        <Header 
-          username={this.props.loggedInUserUsername}
-          logout={this.props.logout}
-        />
-        { this.showTheThing() }
-      </React.Fragment>
-    )
-  }
-}
 
 
 
