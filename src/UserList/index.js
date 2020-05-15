@@ -1,26 +1,29 @@
 import React from 'react'
-import { Card, Button } from 'semantic-ui-react'
+import { Card, Button, Header } from 'semantic-ui-react'
 
 export default function UserList(props) {
   console.log("THIS IS THE USER LIST (props in USERLIST)", props);
   const users = props.users.map(user => {
-
-    console.log(user);
+    console.log("user", user);
     return(
       <Card 
         key={user.id} 
         color={"blue"}
       >
         <Card.Content textAlign={"center"}>
-          <Card.Header>
-            name: {user.name}
-          </Card.Header>
+          <Header>
+            {user.name}'s Profile
+          </Header>
           <Card.Description>
-            clean_pref: {user.clean_pref}
-            big_pref: {user.big_pref}
-            fenced_pref: {user.fenced_pref}
-            busy_pref: {user.busy_pref}
-            note: {user.note}
+            Cleanliness Preference: {user.clean_pref}
+            <br/>
+            Size Preference: {user.big_pref}
+            <br/>
+            Fenced-In Preference: {user.fenced_pref}
+            <br/>
+            Business Preference: {user.busy_pref}
+            <br/>
+            Additional Notes: {user.note}
           </Card.Description>
         </Card.Content>
           <Card.Content textAlign={"center"}> 

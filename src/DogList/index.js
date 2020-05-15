@@ -7,7 +7,7 @@ export default function DogList(props) {
     return(
       <Card 
         key={dog.id} 
-        color={"black"}
+        color={"blue"}
       >
         <Card.Content textAlign={"center"}>
         <Header>
