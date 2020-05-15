@@ -22,7 +22,9 @@ export default function MainContainer(props) {
         credentials: 'include'
       })
       const usersJson = await usersResponse.json()
+      console.log(usersJson, "users json");
       setUserPrefs(usersJson.data)
+
     } catch(err) {
       console.error("ERROR getting USER's PREFS DATA", err)
     }

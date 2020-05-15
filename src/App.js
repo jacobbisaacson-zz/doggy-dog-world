@@ -56,7 +56,7 @@ export default function App() {
       if(loginResponse.status === 200) {
         setLoggedIn(true)
         setLoggedInUserUsername(loginJson.data.username)
-        setUser(loginJson.data)
+        // setUser(loginJson.data)
       }
 
     } catch(error) {
