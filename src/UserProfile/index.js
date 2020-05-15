@@ -83,9 +83,6 @@ export default function UserProfile(props) {
           deleteUser={deleteUser}
           editUser={editUser}
         />
-        <AddUserForm
-          createUser={createUser}
-        />
         {
           idOfUserToEdit !== -1
           &&

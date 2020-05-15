@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
-import Header from './Header'
-import ParkContainer from './ParkContainer'
-import DogProfile from './DogProfile'
-import UserProfile from './UserProfile'
 import MainContainer from './MainContainer'
 
 // import { useForm } from "react-hook-form";
@@ -134,6 +130,9 @@ export default function App() {
 
 
 
+  // put back {card color} in the description of the light color
+  // add background color {card color} to the style
+  // TONS OF STUFF INT HE PARK CONTAINER NEEDS TO BE ADDED BACK
 
 
 
@@ -170,3 +169,4 @@ export default function App() {
   //     }
   //   }
   // }
+
