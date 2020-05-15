@@ -20,7 +20,7 @@ export default function EditUserModal({ userToEdit, updateUser, closeModal }) {
         <h3>Edit Preferences</h3>
       </Header>
       <Modal.Content>
-        <h3>{userPrefs.name}'s Preferences</h3>
+        <h3>{userPrefs[0].name}'s Preferences</h3>
         <Form onSubmit={handleSubmit} className="this-form">
           <div className="two-columns">
           <Label>How important is a clean dog park to you?:</Label>

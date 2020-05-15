@@ -8,7 +8,7 @@ export default function ParkShow({ parkToShow, closeParkModal }) {
   return(
     <Modal open={true} closeIcon={true} onClose={closeParkModal}>
       <Header className='park-header-style'>{parkToShow.name}</Header>
-      <Header>{parkToShow.location}</Header>
+      <Header className='park-header-style'>{parkToShow.location}</Header>
       <Modal.Content image>
         <Image
           src={parkToShow.image}

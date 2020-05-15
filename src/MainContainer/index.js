@@ -99,7 +99,7 @@ export default function MainContainer(props) {
   return(
     <React.Fragment>
       <Header 
-        username={loggedInUserUsername}
+        username={props.loggedInUserUsername}
         logout={props.logout}
       />
       { showTheThing() }

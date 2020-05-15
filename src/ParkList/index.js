@@ -53,9 +53,14 @@ export default function ParkList(props) {
         fluid
         key={park.id} 
         color={cardColor}
+        style={{ 
+          fontSize: 20, 
+          fontWeight: 'bold', 
+          padding: 10
+        }}
       >
         <Card.Content textAlign={"center"}>
-        <Header>
+        <Header style={{ backgroundColor: cardColor }}>
           {park.name}
         </Header>
           <Image 
@@ -63,15 +68,29 @@ export default function ParkList(props) {
             size='medium'
             floated='left'
           />
+            <Card.Meta 
+              style={{ 
+                fontSize: 20, 
+                fontWeight: 'bold', 
+                padding: 10
+              }}> Location: 
+              <br/>
+              {park.location}
+            </Card.Meta>
+              <br/>
             <Card.Meta>
-              Location: {park.location}
+              Posted by:
+              <br/>
+              {park.owner.username}
             </Card.Meta>
-            <Card.Meta>
-              Posted by: {park.owner.username}
-            </Card.Meta>
-            <Card.Meta style={{ backgroundColor: cardColor, fontSize: 20, fontWeight: 'bold', padding: 10 }}>
-              {park.name} is a {cardColor} light for you and your pup!
-            </Card.Meta>
+            <Card.Description
+              style={{ 
+                fontSize: 20, 
+                fontWeight: 'bold', 
+                padding: 10,
+                backgroundColor: cardColor
+              }}> {park.name} is a {cardColor} light for you and your pup!
+            </Card.Description>
           </Card.Content>
           <Card.Content 
             textAlign={"center"}
@@ -96,7 +115,7 @@ export default function ParkList(props) {
                 size='medium'
                 onClick={ () => props.showPark(park.id) }
               >
-                See {park.name}
+                {park.name} Details
               </Button>
             </div>
         </Card.Content>

@@ -15,3 +15,8 @@
   padding: 10px;
   margin: 0 auto;
 }
+
+.something-1 {
+  padding: 20px;
+  border-bottom: 5px solid black;
+}
