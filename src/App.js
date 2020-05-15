@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Image, Header } from 'semantic-ui-react'
 import './App.css';
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
@@ -100,7 +101,10 @@ export default function App() {
         </React.Fragment>
       }
         <div className="footer-style">
-          <footer><small>built by jbi</small></footer>
+          <Header size='tiny'>
+            <small>built by jbi</small>
+            <Image circular floated='right' src='https://i.imgur.com/6A5vim9.jpg?2'/>
+          </Header>
         </div>
     </div>
   );    

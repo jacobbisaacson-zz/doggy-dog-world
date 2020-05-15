@@ -14,10 +14,10 @@ export default class MainHeader extends Component {
   render() {
     console.log(this.props, "props in header");
     return(
-      <Segment clearing style={{ height: 70, textAlign: 'center' }}>
-        <Header as='h3'>
+      <Segment size='small' clearing style={{ height: 65, textAlign: 'left' }}>
+        <Header size='small'>
           <Image circular floated='right' src='https://i.imgur.com/6A5vim9.jpg?2'/>
-          <p>Logged in as: {this.props.username}.&nbsp;<span className="fake-link" onClick={this.props.logout}>(Log out)</span></p>
+          <p>Currently Logged In || <span className="fake-link" onClick={this.props.logout}>Log out</span></p>
         </Header>
       </Segment>
     )
