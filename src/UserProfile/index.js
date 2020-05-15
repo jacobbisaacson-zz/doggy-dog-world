@@ -31,7 +31,6 @@ export default function UserProfile(props) {
 
   return(
     <React.Fragment>
-      <h3>User Profile</h3>
         <UserList 
           users={props.userPrefs}
           deleteUser={deleteUser}
