@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../Header'
 import ParkContainer from '../ParkContainer'
 import DogProfile from '../DogProfile'
@@ -6,15 +6,32 @@ import UserProfile from '../UserProfile'
 import AddUserForm from '../AddUserForm'
 
 export default function MainContainer(props) {
-  const [prefs, setPrefs] = useState(null)
+  const [prefs, setUserPrefs] = useState(null)
   const [users, setUsers] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUserUsername, setLoggedInUserUsername] = useState('')
 
-  const createUser = async (userToAdd) => {
+  useEffect(() => {
+    getUserPrefs()
+  }, [])
+
+  const getUserPrefs = async () => {
+    try {
+      const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/show"
+      const usersResponse = await fetch(url, {
+        credentials: 'include'
+      })
+      const usersJson = await usersResponse.json()
+      setUserPrefs(usersJson.data)
+    } catch(err) {
+      console.error("ERROR getting USER's PREFS DATA", err)
+    }
+  }
+
+  const createUserPrefs = async (userToAdd) => {
     try {
       const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/"
-      const createUserResponse = await fetch(url, {
+      const createUserPrefsResponse = await fetch(url, {
         credentials: 'include',
         method: 'POST',
         body: JSON.stringify(userToAdd),
@@ -22,9 +39,10 @@ export default function MainContainer(props) {
           'Content-Type': 'application/json'
         }
       })
-      const createUserJson = await createUserResponse.json()
-      if(createUserResponse.status === 201) {
-        setUsers([ ...users, createUserJson.data ])
+      const createUserPrefsJson = await createUserPrefsResponse.json()
+      console.log("create user prefs json", createUserPrefsJson);
+      if(createUserPrefsResponse.status === 201) {
+        setUsers([ ...users, createUserPrefsJson.data ])
       }
     } catch(err) {
       console.error("Error adding USER!! -- in CREATE USER in UserProfile", err)
@@ -36,7 +54,7 @@ export default function MainContainer(props) {
       return "Loading"
     } else {
       if(prefs.length === 0) {
-        return( <AddUserForm /> )
+        return( <AddUserForm createUserPrefs={createUserPrefs} /> )
       } else {
         return(
           <React.Fragment>
@@ -44,7 +62,7 @@ export default function MainContainer(props) {
             <DogProfile />
             <UserProfile  
               userPrefs={prefs}
-              createUser={createUser} />
+              createUserPrefs={createUserPrefs} />
           </React.Fragment>
         )
       }

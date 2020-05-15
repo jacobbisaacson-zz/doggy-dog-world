@@ -30,7 +30,7 @@ export default class AddUserForm extends Component {
     console.log(event.target.value);
     console.log(event.target.name);
 
-    this.props.createUser(this.state)
+    this.props.createUserPrefs(this.state)
 
     this.setState({
       name: '',
