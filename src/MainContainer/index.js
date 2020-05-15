@@ -30,7 +30,7 @@ export default function MainContainer(props) {
     }
   }
 
-  const updateUser = async (updatedUserInfo) => {
+  const updateUserPrefs = async (updatedUserInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/user_prefs/"
     try {
       const updateUserResponse = await fetch(url, {
@@ -88,7 +88,7 @@ export default function MainContainer(props) {
             <UserProfile  
               userPrefs={prefs}
               createUserPrefs={createUserPrefs}
-              updateUser={updateUser} 
+              updateUserPrefs={updateUserPrefs} 
             />
           </React.Fragment>
         )

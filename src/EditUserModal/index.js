@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { Form, Button, Modal, Header, Input, Select, Label } from 'semantic-ui-react'
 import '../index.css'
 
-export default function EditUserModal({ userToEdit, updateUser, closeModal }) {
+export default function EditUserModal({ userToEdit, updateUserPrefs, closeModal }) {
   const [userPrefs, setUserPrefs] = useState(userToEdit)
   console.log("****** EDIT USER MODAL USER PREFS *****", userPrefs);
-  const handleChange = event => setUserPrefs({ ...userPrefs, [event.target.name]: event.target.value })
+  const handleChange = event => setUserPrefs({ [event.target.name]: event.target.value })
   const handleSubmit = (event) => {
     event.preventDefault()
-    updateUser(setUserPrefs)
+    updateUserPrefs(userPrefs)
     // ASK IF THIS SHOULD JUST BE userPrefs
     closeModal()
   }
@@ -20,7 +20,7 @@ export default function EditUserModal({ userToEdit, updateUser, closeModal }) {
         <h3>Edit Preferences</h3>
       </Header>
       <Modal.Content>
-        <h3>{userPrefs[0].name}'s Preferences</h3>
+        <h3>{userPrefs.name}'s Preferences</h3>
         <Form onSubmit={handleSubmit} className="this-form">
           <div className="two-columns">
           <Label>How important is a clean dog park to you?:</Label>
@@ -28,24 +28,24 @@ export default function EditUserModal({ userToEdit, updateUser, closeModal }) {
             type="radio"
             name="clean_pref"
             label='Very'
-            value='3'
-            checked={userPrefs.clean_pref === '3'}
+            value={3}
+            checked={userPrefs.clean_pref == 3}
             onChange={handleChange}
           />
           <Form.Input 
             type="radio"
             name="clean_pref"
             label='Kinda'
-            value='2'
-            checked={userPrefs.clean_pref === '2'}
+            value={2}
+            checked={userPrefs.clean_pref == 2}
             onChange={handleChange}
           />
           <Form.Input 
             type="radio"
             name="clean_pref"
             label='Meh...'
-            value='1'
-            checked={userPrefs.clean_pref === '1'}
+            value={1}
+            checked={userPrefs.clean_pref == 1}
             onChange={handleChange}
           />
           <Label>How important is a big dog park to you?:</Label>

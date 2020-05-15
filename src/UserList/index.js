@@ -27,11 +27,6 @@ export default function UserList(props) {
           </Card.Description>
         </Card.Content>
           <Card.Content textAlign={"center"}> 
-            <Button 
-              basic 
-              color='green'
-              onClick={ () => props.editUser(user.id) } > Edit
-            </Button>
         </Card.Content>
       </Card>
     )

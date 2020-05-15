@@ -43,7 +43,7 @@ export default function UserProfile(props) {
           <EditUserModal
             key={idOfUserToEdit}
             userToEdit={props.userPrefs}
-            updateUser={props.updateUser}
+            updateUserPrefs={props.updateUserPrefs}
             closeModal={closeModal}
           />
         }
