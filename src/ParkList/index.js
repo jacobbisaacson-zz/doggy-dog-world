@@ -33,7 +33,7 @@ export default function ParkList(props) {
     const userSum = userArr.reduce(reducer, 0)
     // console.log("userSum", userSum);
 
-    const theNumber = parkSum - userSum
+    const theNumber = userSum - parkSum
     // console.log(theNumber);
 
     let cardColor = null
@@ -41,7 +41,7 @@ export default function ParkList(props) {
     if(theNumber >= 0 && theNumber < 3) {
       cardColor = 'green'
     } else {
-      if(theNumber > 3 && theNumber < 7) {
+      if(theNumber > 3 && theNumber < 8) {
         cardColor = 'yellow'
       } else {
         cardColor = 'red'
