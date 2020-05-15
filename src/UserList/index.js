@@ -2,9 +2,9 @@ import React from 'react'
 import { Card, Button, Header } from 'semantic-ui-react'
 
 export default function UserList(props) {
-  console.log("THIS IS THE USER LIST (props in USERLIST)", props);
+  // console.log("THIS IS THE USER LIST (props in USERLIST)", props);
   const users = props.users.map(user => {
-    console.log("user in UserList", user);
+    // console.log("user in UserList", user);
     return(
       <Card 
         key={user.id} 
@@ -29,17 +29,8 @@ export default function UserList(props) {
           <Card.Content textAlign={"center"}> 
             <Button 
               basic 
-              color='red'
-              onClick={ () => props.deleteUser(user.id) }
-            >
-              Delete
-            </Button>
-            <Button 
-              basic 
               color='green'
-              onClick={ () => props.editUser(user.id) }
-            >
-              Edit
+              onClick={ () => props.editUser(user.id) } > Edit
             </Button>
         </Card.Content>
       </Card>

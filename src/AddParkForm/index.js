@@ -17,8 +17,8 @@ export default class NewParkForm extends Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.value);
-    console.log(event.target.name);
+    // console.log(event.target.value);
+    // console.log(event.target.name);
 
     this.setState({
       [event.target.name]: event.target.value
@@ -27,8 +27,8 @@ export default class NewParkForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(event.target.value);
-    console.log(event.target.name);
+    // console.log(event.target.value);
+    // console.log(event.target.name);
 
     this.props.createPark(this.state)
 

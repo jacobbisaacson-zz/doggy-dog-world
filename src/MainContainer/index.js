@@ -22,7 +22,7 @@ export default function MainContainer(props) {
         credentials: 'include'
       })
       const usersJson = await usersResponse.json()
-      console.log(usersJson, "users json");
+      console.log("users json data", usersJson);
       setUserPrefs(usersJson.data)
 
     } catch(err) {
