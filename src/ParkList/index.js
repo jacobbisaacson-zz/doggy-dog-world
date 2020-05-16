@@ -26,13 +26,10 @@ export default function ParkList(props) {
     const reducer = (accumulator, currentValue) => accumulator + currentValue
     // console.log("user score sum", userArr.reduce(reducer));
     // console.log("park score sum", parkArr.reduce(reducer));
-
     const parkSum = parkArr.reduce(reducer, 0)
     // console.log("parkSum", parkSum);
-
     const userSum = userArr.reduce(reducer, 0)
     // console.log("userSum", userSum);
-
     const theNumber = userSum - parkSum
     // console.log(theNumber);
 
