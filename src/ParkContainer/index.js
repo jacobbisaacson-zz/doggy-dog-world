@@ -99,7 +99,6 @@ export default function ParkContainer(props) {
 
   return(
     <React.Fragment>
-      <h2>Find a Dog Park!</h2>
       {
       props.userPrefs.length > 0
       ?

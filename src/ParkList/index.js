@@ -26,6 +26,7 @@ export default function ParkList(props) {
 
     const parkSum = parkArr.reduce(reducer, 0)
     const userSum = userArr.reduce(reducer, 0)
+
     const theNumber = userSum - parkSum
 
     let cardColor = null

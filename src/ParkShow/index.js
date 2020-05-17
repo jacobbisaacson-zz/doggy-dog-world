@@ -27,7 +27,7 @@ export default function ParkShow({ parkToShow, closeParkModal }) {
             style={{ color: 'skyBlue', fontSize: 24, fontWeight: 'bold' }}>{parkToShow.name}'s Details:</Header>
             <div>
               <h6
-                style={{ color: 'black', fontSize: 18, fontWeight: 'bold', margin: 0 }}>(user rated, on a scale from 1-3)</h6>
+                style={{ color: 'black', fontSize: 15, fontWeight: 'bold', margin: 0 }}>* User rated on a scale from 1-3</h6>
               <h4
                 style={{ color: 'skyBlue', fontSize: 20, fontWeight: 'bold' }}>Posted By: {parkToShow.owner.username}</h4>
             </div>
