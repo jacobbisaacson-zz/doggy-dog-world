@@ -3,8 +3,7 @@ import { Card, Button, Image, Header } from 'semantic-ui-react'
 import '../App.css'
 
 export default function ParkList(props) {
-  // console.log("THIS IS THE USER'S PARK LIST (props in ParkList)", props);
-  // console.log("USER PREFS IN PARK LIST", props.userPrefs);
+
   const userArr = [];
 
   if(props.userPrefs[0]) {
@@ -24,14 +23,10 @@ export default function ParkList(props) {
     const pushToParkArrBusy = parkArr.push(park.busy)
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue
-    // console.log("user score sum", userArr.reduce(reducer));
-    // console.log("park score sum", parkArr.reduce(reducer));
+
     const parkSum = parkArr.reduce(reducer, 0)
-    // console.log("parkSum", parkSum);
     const userSum = userArr.reduce(reducer, 0)
-    // console.log("userSum", userSum);
     const theNumber = userSum - parkSum
-    // console.log(theNumber);
 
     let cardColor = null
 
@@ -129,5 +124,31 @@ export default function ParkList(props) {
   )
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// lines 6 and 7
+  // console.log("THIS IS THE USER'S PARK LIST (props in ParkList)", props);
+  // console.log("USER PREFS IN PARK LIST", props.userPrefs);
+
+// lines 26 and 27
+    // console.log("user score sum", userArr.reduce(reducer));
+    // console.log("park score sum", parkArr.reduce(reducer));
+
+// lines 28 and 30 and 32
+  // console.log("parkSum", parkSum);
+  // console.log("userSum", userSum);
+  // console.log(theNumber);
 
 

@@ -13,11 +13,12 @@ export default function EditDogModal({dogToEdit, updateDog, closeModal}) {
   return(
     <Modal open={true} closeIcon={true} onClose={closeModal}> 
       <Header>
-        <h3>Edit This Dog</h3>
+        <h3 style={{ color: 'skyBlue', fontSize: 24, fontWeight: 'bold', padding: 10 }}>Edit {dog.name}</h3>
       </Header>
       <Modal.Content>
         <Form onSubmit={handleSubmit}>
-          <Label>Name:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Name:</Label>
           <Form.Input 
             type="text"
             name="name"
@@ -25,7 +26,8 @@ export default function EditDogModal({dogToEdit, updateDog, closeModal}) {
             placeholder="Enter a name"
             onChange={handleChange}
           />
-          <Label>Breed:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Breed:</Label>
           <Form.Input 
             type="text"
             name="breed"
@@ -33,7 +35,8 @@ export default function EditDogModal({dogToEdit, updateDog, closeModal}) {
             placeholder="Enter a breed"
             onChange={handleChange}
           />
-          <Label>Cute Picture:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Cute Picture:</Label>
           <Form.Input 
             type="text"
             name="image"
@@ -42,7 +45,9 @@ export default function EditDogModal({dogToEdit, updateDog, closeModal}) {
             onChange={handleChange}
           />
           <Modal.Actions>
-            <Button type="Submit">Update Dog</Button>
+            <Button
+              style={{ color: 'skyBlue', fontSize: 20, fontWeight: 'bold' }} 
+              type="Submit">Update {dog.name}</Button>
           </Modal.Actions>
         </Form>
       </Modal.Content>

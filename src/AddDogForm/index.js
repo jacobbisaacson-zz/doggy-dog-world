@@ -23,12 +23,14 @@ export default function AddDogForm({createDog}) {
 
   return (
     <Segment>
-      <h4>Add new dog:</h4>
+      <h4
+        style={{ color: 'skyBlue', fontSize: 24, fontWeight: 'bold', padding: 10 }}>Add new dog:</h4>
       <Form 
         onSubmit={handleSubmit}
         className="this-form"
       >
-        <Label>Name:</Label>
+        <Label
+          style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Name:</Label>
         <Form.Input 
           type="text"
           name="name"
@@ -36,7 +38,8 @@ export default function AddDogForm({createDog}) {
           placeholder="Enter a name"
           onChange={handleChange}  
         />
-        <Label>Breed:</Label>
+        <Label
+          style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Breed:</Label>
         <Form.Input 
           type="text"
           name="breed"
@@ -44,7 +47,8 @@ export default function AddDogForm({createDog}) {
           placeholder="Enter a breed"
           onChange={handleChange}
         />
-        <Label>Picture:</Label>
+        <Label
+          style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Picture:</Label>
         <Form.Input 
           type="text"
           name="image"
@@ -52,7 +56,9 @@ export default function AddDogForm({createDog}) {
           placeholder="Paste image URL here: "
           onChange={handleChange}
         />
-        <Button type="Submit">Submit</Button>
+        <Button
+          style={{ color: 'skyBlue', fontSize: 20, fontWeight: 'bold' }} 
+          type="Submit">Submit</Button>
       </Form>
     </Segment>
   )

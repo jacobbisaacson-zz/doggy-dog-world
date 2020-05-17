@@ -13,7 +13,7 @@ export default function EditParkModal({ parkToEdit, updatePark, closeModal }) {
   return(
     <Modal open={true} closeIcon={true} onClose={closeModal}> 
       <Header>
-        <h3>Enter new info</h3>
+        <h3 style={{ color: 'skyBlue', fontSize: 24, fontWeight: 'bold', padding: 10 }}>Edit {park.name}</h3>
       </Header>
       <Modal.Content>
         <Form 
@@ -47,7 +47,9 @@ export default function EditParkModal({ parkToEdit, updatePark, closeModal }) {
           placeholder="Paste Park's image URL here: "
           onChange={handleChange}
         />
-        <Form.Field control={Button}>Submit</Form.Field>
+        <Form.Field
+          style={{ color: 'skyBlue', fontSize: 20, fontWeight: 'bold' }} 
+          control={Button}>Submit</Form.Field>
       </Form>
       </Modal.Content>
     </Modal>

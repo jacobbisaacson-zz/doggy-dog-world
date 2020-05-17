@@ -16,7 +16,8 @@ export default function ParkShow({ parkToShow, closeParkModal }) {
           size='medium'
         />
         <Modal.Description>
-          <Header>{parkToShow.name}'s Details:</Header>
+          <Header
+            style={{ color: 'skyBlue', fontSize: 24, fontWeight: 'bold', padding: 10 }}>{parkToShow.name}'s Details:</Header>
             <small>(user rated, on a scale from 1-3)</small>
             <p className='park-show-p'>Located at {parkToShow.location}</p>
             <p className='park-show-p'>How Clean?<br></br>{parkToShow.clean}</p>

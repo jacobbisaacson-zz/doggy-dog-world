@@ -46,9 +46,11 @@ export default class NewParkForm extends Component {
   render() {
     return (
      <Segment>
-      <h4>Add New Park:</h4>
-        <Form onSubmit={this.handleSubmit} className="this-form">
-          <Label>Name:</Label>
+      <h4
+        style={{ color: 'skyBlue', fontSize: 24, fontWeight: 'bold', padding: 10 }}>Add New Park:</h4>
+        <Form onSubmit={this.handleSubmit} className="this-form" style={{ }} >
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Name:</Label>
           <Form.Input
             type='text'
             name='name'
@@ -56,7 +58,8 @@ export default class NewParkForm extends Component {
             placeholder="Enter Park Name: "
             onChange={this.handleChange}
           />
-          <Label>Location:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Location:</Label>
           <Form.Input
             name='location'
             value={this.state.location}
@@ -64,7 +67,8 @@ export default class NewParkForm extends Component {
             onChange={this.handleChange}
           />
           <div className="two-columns">
-          <Label>How Clean?:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>How Clean?:</Label>
           <Form.Input
             type='radio'
             name='clean'
@@ -89,7 +93,8 @@ export default class NewParkForm extends Component {
             checked={this.state.clean === '1'}
             onChange={this.handleChange}
           />
-          <Label>How Big?:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>How Big?:</Label>
           <Form.Input
             type='radio'
             name='big'
@@ -114,7 +119,8 @@ export default class NewParkForm extends Component {
             checked={this.state.big === '1'}
             onChange={this.handleChange}
           />
-          <Label>How Fenced?:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>How Fenced?:</Label>
           <Form.Input
             type='radio'
             name='fenced'
@@ -139,7 +145,8 @@ export default class NewParkForm extends Component {
             checked={this.state.fenced === '1'}
             onChange={this.handleChange}
           />
-          <Label>How Busy?:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>How Busy?:</Label>
           <Form.Input
             type="radio"
             name='busy'
@@ -165,7 +172,8 @@ export default class NewParkForm extends Component {
             onChange={this.handleChange}
           />
           </div>
-          <Label>Image:</Label>
+          <Label
+            style={{ color: 'skyBlue', fontSize: 14, fontWeight: 'bold' }}>Image:</Label>
           <Form.Input
             type='text'
             name='image'
@@ -173,7 +181,9 @@ export default class NewParkForm extends Component {
             placeholder="Paste Image URL: "
             onChange={this.handleChange}
           />
-          <Button type="Submit">Submit</Button>
+          <Button 
+            type="Submit" 
+            style={{ color: 'skyBlue', fontSize: 20, fontWeight: 'bold' }}>Submit</Button>
         </Form>
       </Segment>
     )
