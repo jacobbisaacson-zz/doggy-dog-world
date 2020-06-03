@@ -1,71 +1,216 @@
+# doggy-dog-world-backend
 This Project is Deployed at https://its-a-doggy-dog-world.herokuapp.com/
 
+## Wireframes
+Purpose / Notes
+![Purpose / Notes](https://i.imgur.com/iiANu6z.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Login / Register
+![Login / Register](https://i.imgur.com/RQL9jm0.jpg)
 
-## Available Scripts
+Add / Edit Dog
+![Add / Edit Dog](https://i.imgur.com/Okj4R33.jpg)
 
-In the project directory, you can run:
+All Dogs
+![All Dogs](https://i.imgur.com/6nr1w42.jpg)
 
-### `npm start`
+Map / Home
+![Map / Home](https://i.imgur.com/SjRDyt7.jpg)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+OR
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+MapShowPage / Home(UserPage) (better version)
+![MapShowPage / Home(UserPage) (better version)](https://i.imgur.com/vhpRonQ.jpg)
 
-### `npm test`
+Add / Edit Profile / Preferences
+![Add / Edit Profile / Preferences](https://i.imgur.com/vhpRonQ.jpg)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Models chicken scratch
+![Models chicken scratch](https://i.imgur.com/dJt1Us0.jpg)
 
-### `npm run build`
+User Preferences / Dog Profile (version 1)
+![User Preferences / Dog Profile (version 1)](https://i.imgur.com/l3Ukqb0.jpg)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## User Stories
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- User can REGISTER, LOGIN, LOGOUT
+- User can CREATE their dog
+- User can EDIT/UPDATE/DELETE their dog
+- User can DELETE their dog
+- User can VIEW all dogs
+- User can VIEW the map
+- User can CREATE a profile (preferences)
+- User can EDIT/UPDATE/DELETE their profile (preferences)
+- User can VIEW all parks ??
+- User can see which parks are Green, Yellow, or Red light
+- User can select park to see that park's details:
+	- including name, location, clean, big, fenced, busy
+- User can CRUD Parks
 
-### `npm run eject`
+## Models
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Dog
+	- name
+	- owner (FK)
+	- breed
+	- image
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- User
+	- username
+	- email
+	- password
+	- ? current location ? (Geospatial)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Park
+	- name
+	- location (Geospatial)
+	- isClean (bool)
+	- isFenced (bool)
+	- isBusy (bool)
+	- isBig (bool)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- UserPref (or maybe call it Profile, or UserProfile)
+	- clean
+	- fenced
+	- busy
+	- big
 
-## Learn More
+## Routes (-- all /api/v1 --)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- /users/register (register) POST
+- /users/login (login) POST
+- /users/edit (edit/update) PUT
+- /users/delete (delete/destroy) DELETE
+- /users/all (show/index) GET
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- /dogs (show/index user's dogs) GET
+- /dogs/all (show/index all dogs) GET
+- /dogs/ (create) POST
+- /dogs/id (delete) DELETE
+- /dogs/id (edit/update) PUT
 
-### Code Splitting
+- /parks (show/index) GET
+- /parks/ (create) POST
+- /parks/id (delete) DELETE
+- /parks/id (edit/update) PUT
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Tech Used
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- React front
+- Flask back
+- SQL DB
+- Google Maps / Mapbox API ??
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Other Notes
+- Can the User add comments / posts to the park
 
-### Advanced Configuration
+- Does the park data (related to User Preferences) revert to Default at 12AM daily? (user is going to cruyd the parks)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Should the home page be the Map, or the list of parks with the User's profile side by side?
+	- where the User could select a park, or edit/update their profile/preferences
+- Can Users chat? (socket.io)
 
-### Deployment
+- Can user "check-in" to say they are currently at a park?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- Is there any social element whatsoever?
+- 
 
-### `npm run build` fails to minify
+## Questions for TS, RA or DB
+- How can I assign values to the importance of each preference a User selects from the options? (later 5.10)
+- Am I setting up models correctly? (good)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Route for creating user profile?  dog profile?  or should those fields be a part of the models?
+
+- registering (sign up here to register) -- 
+
+		Warning: Failed prop type: Invalid prop `children` supplied to `Form`, expected a ReactNode.
+    in Form (at LoginRegisterForm/index.js:44)
+    in LoginRegisterForm (at App.js:95)
+    in div (at App.js:86)
+    in App (at src/index.js:9)
+// dont worry about this for now //
+
+# NEED TO UPDATE THIS ( THE NEW USER MODEL INFO (PREFS) ) IN THE USER STUFF!!!!
+
+- FOR scoring system (preferences) use 1, 2, and 3
+- Get mapbox token
+- integerfield for perferences
+- making both parks and user pref's integers, 
+
+
+NEW Q for TS -- 
+
+-- TS said to put the user prefs int he user model, 
+but that was not working, so i made a new model... is that going to screw me? see next... 
+
+-- if i DONT wanna create multiple user_prefs... need help with conditional (if already have user prefs created, dont create, etc... )
+
+-- what to do for the User Profile Show / addform / edit/update? all messed up
+
+-- able to add new park, edit and delete it,
+BUT IT DOESN'T STAY IN DB (when logging out and back in)
+
+-- only adds a park if all the checkboxs are checked .. why?  boolean should be checkbox?  or something else?
+
+--why isnt addnew park form working right?  edit worksm but crete doesnt,,, how is that even possible
+
+
+
+TODO's
+- set up parks container, parks list, addpark form, edit park modal
+-- ask RA for help on the login / registration switch form stuff, or a way to make that make sense
+
+
+-- why does the page render at the bottom when loggin in?
+
+
+-- make list of messages, where to display them, and when
+
+
+-- FRIDAY
+
+-- making newly added park show immediately after creation
+-- need to see the username's name next to logout link in the header
+-- edit user modal has an error, but loks like its getting the info from the clicks. submitting issue
+-- 
+
+NEEDS --
+1. user needs to be able to edit/update the parks they add
+
+2. user needs to be able to edit/update the preferences they created for themselves
+
+3. Messages -- user needs to see messages for:
+	- "you can't edit this park (or dog)"
+	- "congrats on registering and setting up your profile!  check out the parks, add your own, add your dogs, etc."
+
+4. DEPLOYMENT -- can't register or login!
+
+5. The correct color for the park card needs to show up when the park is created (not by logging out and back in)
+
+6. DONT EVEN BOTHER WITH EDITING/UPDAING the user's preferences}
+7. DONT EVEN BOTHER WITH EDITING/UPDATING the park info
+
+
+Stuff for this weekend -- 
+1. more styling
+2. flash messages
+3. user needs to see their username in the header next to logout
+4. would love to get MAP container (if possible)
+5. make user profile card look better
+6. make the modals for showing the park look better (GET COLORS IN THERE REFERRING TO THE MATCH WITH THEIR USER SETTINGS)
+
+
+
+
+
+
+
+
+
+
+
+
+
